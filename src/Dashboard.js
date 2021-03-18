@@ -7,7 +7,7 @@ function Dashboard() {
         <div id="page">
         
         <header class="header menu_fixed">
-            <div id="preloader"><div data-loader="circle-side"></div></div>
+            {/* <div id="preloader"><div data-loader="circle-side"></div></div> */}
             <div id="logo">
                 <a href="index.html">
                     <img src="assets/img/logo.svg" width="150" height="36" alt="" class="logo_normal"/>
@@ -25,10 +25,10 @@ function Dashboard() {
             <nav id="menu" class="main-menu">
                 <ul>
                     <li><span><Link to="/">Home</Link></span></li>
-                    <li><span><Link to="list">Room</Link></span></li>
+                    <li><span><Link to="/roomlist">Room</Link></span></li>
                     <li><span><Link to="/about">About</Link></span></li>
-                    <li><span><a href="#0">Sign In</a></span></li>
-                    <li><span><a href="#0">Sign Up</a></span></li>
+                    <li><span><a href="/sign-in">Sign In</a></span></li>
+                    <li><span><a href="/sign-up">Sign Up</a></span></li>
                 </ul>
             </nav>
         </header>

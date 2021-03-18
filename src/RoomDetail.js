@@ -7,7 +7,7 @@ function RoomDetail() {
         <div id="page" class="theia-exception">
             
         <header class="header menu_fixed">
-            <div id="preloader"><div data-loader="circle-side"></div></div>
+            {/* <div id="preloader"><div data-loader="circle-side"></div></div> */}
             <div id="logo">
                 <a href="index.html">
                     <img src="assets/img/logo.svg" width="150" height="36" alt="" class="logo_normal"/>
