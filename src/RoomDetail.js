@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function RoomDetail() {    
     return(
@@ -12,13 +13,7 @@ function RoomDetail() {
                     <img src="assets/img/logo.svg" width="150" height="36" alt="" class="logo_normal"/>
                     <img src="assets/img/logo_sticky.svg" width="150" height="36" alt="" class="logo_sticky"/>
                 </a>
-            </div>
-            <ul id="top_menu">
-                <li><a href="cart-1.html" class="cart-menu-btn" title="Cart"><strong>4</strong></a></li>
-                <li><a href="#sign-in-dialog" id="sign-in" class="login" title="Sign In">Sign In</a></li>
-                <li><a href="wishlist.html" class="wishlist_bt_top" title="Your wishlist">Your wishlist</a></li>
-            </ul>
-            
+            </div>          
             <a href="#menu" class="btn_mobile">
                 <div class="hamburger hamburger--spin" id="hamburger">
                     <div class="hamburger-box">
@@ -28,145 +23,11 @@ function RoomDetail() {
             </a>
             <nav id="menu" class="main-menu">
                 <ul>
-                    <li><span><a href="#0">Home</a></span>
-                        <ul>
-                            <li><a href="index.html">Home Default</a></li>
-                            <li><a href="index-2.html">Home Slider</a></li>
-                            <li><a href="index-3.html">Home Video BG</a></li>
-                            <li><a href="index-4.html">Home Layer Slider</a></li>
-                            <li><a href="index-5.html">Home Search 2</a></li>
-                            <li><a href="index-10.html">Home Search 3 <strong>New!</strong></a></li>
-                            <li><a href="index-7.html">Home Search 4</a></li>
-                            <li><a href="index-6.html">Home GDPR (EU law)</a></li>
-                            <li><a href="index-8.html">Address Autocomplete</a></li>
-                            <li><a href="index-9.html">Home AirBnb</a></li>
-                        </ul>
-                    </li>
-                    <li><span><a href="#0">Tours</a></span>
-                        <ul>
-                            <li>
-                                <span><a href="#0">Tours Grid</a></span>
-                                <ul>
-                                    <li><a href="tours-grid-isotope.html">Tours Grid Isotope</a></li>
-                                    <li><a href="tours-grid-sidebar.html">Tours Grid Sidebar</a></li>
-                                    <li><a href="tours-grid-sidebar-2.html">Tours Grid Sidebar 2</a></li>
-                                    <li><a href="tours-grid.html">Tours Grid Simple</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span><a href="#0">Tours List</a></span>
-                                <ul>
-                                    <li><a href="tours-list-isotope.html">Tours List Isotope</a></li>
-                                    <li><a href="tours-list-sidebar.html">Tours List Sidebar</a></li>
-                                    <li><a href="tours-list-sidebar-2.html">Tours List Sidebar 2</a></li>
-                                    <li><a href="tours-list.html">Tours List Simple</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="tours-half-screen-map.html">Tours Half Screen Map</a></li>
-                            <li><a href="tour-detail.html">Tour Detail</a></li>
-                            <li><a href="detail-working-contact-form.html">Detail Contact Form <strong>New!</strong></a></li>
-                            <li>
-                                <span><a href="#0">Open Street Map</a></span>
-                                <ul>
-                                    <li><a href="tours-half-screen-map-leaflet.html">Tours Half Screen Map</a></li>
-                                    <li><a href="tours-list-isotope-leaflet.html">Tours Grid Isotope</a></li>
-                                    <li><a href="tours-list-sidebar-leaflet.html">Tours Grid Sidebar</a></li>
-                                    <li><a href="tours-list-sidebar-2-leaflet.html">Tours Grid Sidebar 2</a></li>
-                                    <li><a href="tours-list-leaflet.html">Tours Grid Simple</a></li>
-                                    <li><a href="tours-list-isotope-leaflet.html">Tours List Isotope</a></li>
-                                    <li><a href="tours-list-sidebar-leaflet.html">Tours List Sidebar</a></li>
-                                    <li><a href="tours-list-sidebar-2-leaflet.html">Tours List Sidebar 2</a></li>
-                                    <li><a href="tours-list-leaflet.html">Tours List Simple</a></li>
-                                    <li><a href="tour-detail-leaflet.html">Tour Detail</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li><span><a href="#0">Hotels</a></span>
-                        <ul>
-                            <li>
-                                <span><a href="#0">Hotel Grid</a></span>
-                                <ul>
-                                    <li><a href="hotels-grid-isotope.html">Hotel Grid Isotope</a></li>
-                                    <li><a href="hotels-grid-sidebar.html">Hotel Grid Sidebar</a></li>
-                                    <li><a href="hotels-grid-sidebar-2.html">Hotel Grid Sidebar 2</a></li>
-                                    <li><a href="hotels-grid.html">Hotel Grid Simple</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span><a href="#0">Hotel List</a></span>
-                                <ul>
-                                    <li><a href="hotels-list-isotope.html">Hotel List Isotope</a></li>
-                                    <li><a href="hotels-list-sidebar.html">Hotel List Sidebar</a></li>
-                                    <li><a href="hotels-list-sidebar-2.html">Hotel List Sidebar 2</a></li>
-                                    <li><a href="hotels-list.html">Hotel List Simple</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="hotels-half-screen-map.html">Hotel Half Screen Map</a></li>
-                            <li><a href="hotel-detail.html">Hotel Detail</a></li>
-                        </ul>
-                    </li>
-                    <li><span><a href="#0">Eat &amp; Drink</a></span>
-                        <ul>
-                            <li>
-                                <span><a href="#0">Restaurant Grid</a></span>
-                                <ul>
-                                    <li><a href="restaurants-grid-isotope.html">Restaurant Grid Isotope</a></li>
-                                    <li><a href="restaurants-grid-sidebar.html">Restaurant Grid Sidebar</a></li>
-                                    <li><a href="restaurants-grid-sidebar-2.html">Restaurant Grid Sidebar 2</a></li>
-                                    <li><a href="restaurants-grid.html">Restaurant Grid simple</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <span><a href="#0">Restaurant List</a></span>
-                                <ul>
-                                    <li><a href="restaurants-list-isotope.html">Restaurant List Isotope</a></li>
-                                    <li><a href="restaurants-list-sidebar.html">Restaurant List Sidebar</a></li>
-                                    <li><a href="restaurants-list-sidebar-2.html">Restaurant List Sidebar 2</a></li>
-                                    <li><a href="restaurants-list.html">Restaurant List Simple</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="restaurants-half-screen-map.html">Half Screen Map</a></li>
-                            <li><a href="restaurant-detail.html">Restaurant Detail</a></li>
-                        </ul>
-                    </li>
-                    <li><span><a href="adventure.html">Adventure</a></span></li>
-                    <li><span><a href="#0">Pages</a></span>
-                        <ul>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="media-gallery.html">Media gallery</a></li>
-                            <li><a href="help.html">Help Section</a></li>
-                            <li><a href="faq.html">Faq Section</a></li>
-                            <li><a href="wishlist.html">Wishlist page</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
-                            <li><a href="blog.html">Blog</a></li>
-                            <li><a href="bootstrap-modal.html">Bootstrap Modal <strong>New!</strong></a></li>
-                            <li><a href="modal-version-2.html">Another Modal <strong>New!</strong></a></li>
-                            <li><a href="pricing-tables-2.html">Pricing Tables 1 <strong>New!</strong></a></li>
-                            <li><a href="pricing-tables-3.html">Pricing Tables 2 <strong>New!</strong></a></li>
-                        </ul>
-                    </li>
-                    <li><span><a href="#0">Extra</a></span>
-                        <ul>
-                            <li><a href="menu-options.html">Menu Position Options</a></li>
-                            <li><a href="tour-detail-singlemonth-datepicker.html">Single month Datepicker</a></li>
-                            <li><a href="404.html">404 Error page</a></li>
-                            <li><a href="cart-1.html">Cart page 1</a></li>
-                            <li><a href="cart-2.html">Cart page 2</a></li>
-                            <li><a href="cart-3.html">Cart page 3</a></li>
-                            <li><a href="pricing-tables.html">Responsive pricing tables</a></li>
-                            <li><a href="coming_soon/index.html">Coming soon</a></li>
-                            <li><a href="invoice.html">Invoice</a></li>
-                            <li><a href="icon-pack-1.html">Icon pack 1</a></li>
-                            <li><a href="icon-pack-2.html">Icon pack 2</a></li>
-                            <li><a href="icon-pack-3.html">Icon pack 3</a></li>
-                            <li><a href="icon-pack-4.html">Icon pack 4</a></li>
-                            <li><a href="hamburgers.html">Animated Hamburgers</a></li>
-                        </ul>
-                    </li>
-                    <li><span><a href="#0">Buy template</a></span></li>
+                    <li><span><Link to="/">Home</Link></span></li>
+                    <li><span><Link to="list">Room</Link></span></li>
+                    <li><span><Link to="/about">About</Link></span></li>
+                    <li><span><a href="#0">Sign In</a></span></li>
+                    <li><span><a href="#0">Sign Up</a></span></li>
                 </ul>
             </nav>
 
@@ -193,7 +54,6 @@ function RoomDetail() {
                     <div class="container">
                         <ul class="clearfix">
                             <li><a href="#description" class="active">Description</a></li>
-                            <li><a href="#reviews">Reviews</a></li>
                             <li><a href="#sidebar">Booking</a></li>
                         </ul>
                     </div>
@@ -294,181 +154,15 @@ function RoomDetail() {
                                 <div id="map" class="map map_single add_bottom_30"></div>
                                 
                             </section>
-                            
-                        
-                            <section id="reviews">
-                                <h2>Reviews</h2>
-                                <div class="reviews-container">
-                                    <div class="row">
-                                        <div class="col-lg-3">
-                                            <div id="review_summary">
-                                                <strong>8.5</strong>
-                                                <em>Superb</em>
-                                                <small>Based on 4 reviews</small>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-9">
-                                            <div class="row">
-                                                <div class="col-lg-10 col-9">
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style={{width: `90%`}} aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2 col-3"><small><strong>5 stars</strong></small></div>
-                                            </div>
-                                            
-                                            <div class="row">
-                                                <div class="col-lg-10 col-9">
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style={{width: `95%`}} aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2 col-3"><small><strong>4 stars</strong></small></div>
-                                            </div>
-                                            
-                                            <div class="row">
-                                                <div class="col-lg-10 col-9">
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style={{width: `60%`}} aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2 col-3"><small><strong>3 stars</strong></small></div>
-                                            </div>
-                                            
-                                            <div class="row">
-                                                <div class="col-lg-10 col-9">
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style={{width: `20%`}} aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2 col-3"><small><strong>2 stars</strong></small></div>
-                                            </div>
-                                            
-                                            <div class="row">
-                                                <div class="col-lg-10 col-9">
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" style={{width: `0`}} aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-2 col-3"><small><strong>1 stars</strong></small></div>
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-                                    
-                                </div>
 
-                                <hr/>
-
-                                <div class="reviews-container">
-
-                                    <div class="review-box clearfix">
-                                        <figure class="rev-thumb"><img src="assets/img/avatar1.jpg" alt=""/>
-                                        </figure>
-                                        <div class="rev-content">
-                                            <div class="rating">
-                                                <i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                                            </div>
-                                            <div class="rev-info">
-                                                Admin – April 03, 2016:
-                                            </div>
-                                            <div class="rev-text">
-                                                <p>
-                                                    Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="review-box clearfix">
-                                        <figure class="rev-thumb"><img src="assets/img/avatar2.jpg" alt=""/>
-                                        </figure>
-                                        <div class="rev-content">
-                                            <div class="rating">
-                                                <i class="icon-star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                                            </div>
-                                            <div class="rev-info">
-                                                Ahsan – April 01, 2016:
-                                            </div>
-                                            <div class="rev-text">
-                                                <p>
-                                                    Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="review-box clearfix">
-                                        <figure class="rev-thumb"><img src="assets/img/avatar3.jpg" alt=""/>
-                                        </figure>
-                                        <div class="rev-content">
-                                            <div class="rating">
-                                                <i class="icon-star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-                                            </div>
-                                            <div class="rev-info">
-                                                Sara – March 31, 2016:
-                                            </div>
-                                            <div class="rev-text">
-                                                <p>
-                                                    Sed eget turpis a pede tempor malesuada. Vivamus quis mi at leo pulvinar hendrerit. Cum sociis natoque penatibus et magnis dis
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                
-                            </section>
-                            
-                            <hr/>
-
-                                <div class="add-review">
-                                    <h5>Leave a Review</h5>
-                                    <form>
-                                        <div class="row">
-                                            <div class="form-group col-md-6">
-                                                <label>Name and Lastname *</label>
-                                                <input type="text" name="name_review" id="name_review" placeholder="" class="form-control"/>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Email *</label>
-                                                <input type="email" name="email_review" id="email_review" class="form-control"/>
-                                            </div>
-                                            <div class="form-group col-md-6">
-                                                <label>Rating </label>
-                                                <div class="custom-select-form">
-                                                <select name="rating_review" id="rating_review" class="wide">
-                                                    <option value="1">1 (lowest)</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5" selected>5 (medium)</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10 (highest)</option>
-                                                </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group col-md-12">
-                                                <label>Your Review</label>
-                                                <textarea name="review_text" id="review_text" class="form-control" style={{height:`130px`}}></textarea>
-                                            </div>
-                                            <div class="form-group col-md-12 add_top_20">
-                                                <input type="submit" value="Submit" class="btn_1" id="submit-review"/>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
                         </div>
                         
                         
                         <aside class="col-lg-4" id="sidebar">
                             <div class="box_detail booking">
                                 <div class="price">
-                                    <span>45$ <small>person</small></span>
-                                    <div class="score"><span>Good<em>350 Reviews</em></span><strong>7.0</strong></div>
+                                    <span>45$ <small>hour</small></span>
+                                    <div class="score"><span>Booking Status<em>Can't Book</em></span></div>
                                 </div>
 
                                 <div class="form-group input-dates">
@@ -476,21 +170,15 @@ function RoomDetail() {
                                     <i class="icon_calendar"></i>
                                 </div>
 
-                                <div class="panel-dropdown">
-                                    <a href="#">Guests <span class="qtyTotal">1</span></a>
-                                    <div class="panel-dropdown-content right">
-                                        <div class="qtyButtons">
-                                            <label>Adults</label>
-                                            <input type="text" name="qtyInput" value="1"/>
-                                        </div>
-                                        <div class="qtyButtons">
-                                            <label>Childrens</label>
-                                            <input type="text" name="qtyInput" value="0"/>
-                                        </div>
-                                    </div>
+                                <div class="form-group input-dates">
+                                    <input class="form-control" type="text" name="dates" placeholder="Starting time.."/>
                                 </div>
 
-                                <div class="form-group clearfix">
+                                <div class="form-group input-dates">
+                                    <input class="form-control" type="text" name="dates" placeholder="Duration"/>
+                                </div>
+
+                                {/* <div class="form-group clearfix">
                                     <div class="custom-select-form">
                                         <select class="wide">
                                             <option>Room Type</option>	
@@ -499,7 +187,7 @@ function RoomDetail() {
                                             <option>Suite Room</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div> */}
                                 <a href="cart-1.html" class=" add_top_30 btn_1 full-width purchase">Purchase</a>
                                 <a href="wishlist.html" class="btn_1 full-width outline wishlist"><i class="icon_heart"></i> Add to wishlist</a>
                                 <div class="text-center"><small>No money charged in this step</small></div>
@@ -539,10 +227,9 @@ function RoomDetail() {
                     <div class="col-lg-3 col-md-6 ml-lg-auto">
                         <h5>Useful links</h5>
                         <ul class="links">
-                            <li><a href="about.html">About</a></li>
+                            <li><Link to="/about">About</Link></li>
                             <li><a href="login.html">Login</a></li>
                             <li><a href="register.html">Register</a></li>
-                            <li><a href="blog.html">News &amp; Events</a></li>
                             <li><a href="contacts.html">Contacts</a></li>
                         </ul>
                     </div>
