@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import Dashboard from './Dashboard';
-import About from './About';
-import RoomDetail from './RoomDetail';
-import RoomList from './RoomList';
+import Dashboard from './pages/Dashboard';
+import About from './pages/About';
+import RoomDetail from './pages/RoomDetail';
+import RoomList from './pages/RoomList';
 
 function routes() {
     return (
