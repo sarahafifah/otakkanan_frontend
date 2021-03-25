@@ -18,7 +18,7 @@ function Navbar() {
       <header class="header menu_fixed">
             {/* <div id="preloader"><div data-loader="circle-side"></div></div> */}
             <div id="logo">
-                <Link to="/">
+            <Link to="/">
                     <img src="assets/img/logo.svg" width="150" height="36" alt="" class="logo_normal"/>
                     <img src="assets/img/logo_sticky.svg" width="150" height="36" alt="" class="logo_sticky"/> 
                 </Link>
