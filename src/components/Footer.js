@@ -24,8 +24,8 @@ function Footer() {
                         <h5>Useful links</h5>
                         <ul class="links">
                             <li><Link to="/about">About</Link></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="register.html">Register</a></li>
+                            <li><a href="/login">Login</a></li>
+                            <li><a href="/register">Register</a></li>
                             <li><a href="contacts.html">Contacts</a></li>
                         </ul>
                     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 //import Navbar from '../components/Navbar';
 //import Footer from '../components/Footer';
 
@@ -17,15 +18,15 @@ function Login() {
 		<div id="login">
 			<aside>
 				<figure>
-					<a href="index.html"><img src="assets/img/logo_sticky.png" width="155" height="36" data-retina="true" alt="" class="logo_sticky"/></a>
+					<Link to="/"><img src="assets/img/logo_sticky.png" width="155" height="36" data-retina="true" alt="" class="logo_sticky"/></Link>
 				</figure>
 				<form>
-					<div class="access_social">
+					{/* <div class="access_social">
 						<a href="#0" class="social_bt facebook">Login with Facebook</a>
 						<a href="#0" class="social_bt google">Login with Google</a>
 						<a href="#0" class="social_bt linkedin">Login with Linkedin</a>
 					</div>
-					<div class="divider"><span>Or</span></div>
+					<div class="divider"><span>Or</span></div> */}
 					<div class="form-group">
 						<label>Email</label>
 						<input type="email" class="form-control" name="email" id="email"/>
@@ -46,7 +47,7 @@ function Login() {
 						<div class="float-right mt-1"><a id="forgot" href="javascript:void(0);">Forgot Password?</a></div>
 					</div>
 					<a href="#0" class="btn_1 rounded full-width">Login to Panagea</a>
-					<div class="text-center add_top_10">New to Panagea? <strong><a href="register.html">Sign up!</a></strong></div>
+					<div class="text-center add_top_10">New to Panagea? <strong><Link to="/register">Sign up!</Link></strong></div>
 				</form>
 				<div class="copy">© 2018 Panagea</div>
 			</aside>

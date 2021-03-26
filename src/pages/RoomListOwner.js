@@ -195,17 +195,17 @@ function RoomListOwner() {
                             <figure>
                                 <a href="#0" class="wish_bt liked"></a>
                                 <a href="tour-detail.html"><img src="assets/img/tour_1.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Historic</small>
+                                <small>Working Space</small>
                                 <div class="read_more"><span>Read more</span></div>
                             </figure>
                             <div class="wrapper">
                                 <h3><a href="tour-detail.html">Arc Triomphe</a></h3>
                                 <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">From <strong>$54</strong> /per person</span>
+                                <span class="price">Start from <strong>$54</strong> /per hour</span>
                             </div>
                             <ul>
-                                <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                                <li><div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div></li>
+                                <li>Jakarta</li>
+                                <li><div class="score"><span>Booking<em>Status</em></span><strong>BOOKED</strong></div></li>
                             </ul>
                         </div>
                     </div>
@@ -215,17 +215,17 @@ function RoomListOwner() {
                             <figure>
                                 <a href="#0" class="wish_bt liked"></a>
                                 <a href="tour-detail.html"><img src="assets/img/tour_2.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Churches</small>
+                                <small>Working Space</small>
                                 <div class="read_more"><span>Read more</span></div>
                             </figure>
                             <div class="wrapper">
                                 <h3><a href="tour-detail.html">Notredam</a></h3>
                                 <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">From <strong>$124</strong> /per person</span>
+                                <span class="price">Start from <strong>$124</strong> /per hour</span>
                             </div>
                             <ul>
-                                <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                                <li><div class="score"><span>Good<em>350 Reviews</em></span><strong>7.0</strong></div></li>
+                                <li>Surabaya</li>
+                                <li><div class="score"><span>Booking<em>Status</em></span><strong>UNRESERVE</strong></div></li>
                             </ul>
                         </div>
                     </div>
@@ -235,17 +235,17 @@ function RoomListOwner() {
                             <figure>
                                 <a href="#0" class="wish_bt liked"></a>
                                 <a href="tour-detail.html"><img src="assets/img/tour_3.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Historic</small>
+                                <small>Meeting Room</small>
                                 <div class="read_more"><span>Read more</span></div>
                             </figure>
                             <div class="wrapper">
                                 <h3><a href="tour-detail.html">Versailles</a></h3>
                                 <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">From <strong>$25</strong> /per person</span>
+                                <span class="price">Start from <strong>$25</strong> /per hour</span>
                             </div>
                             <ul>
-                                <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                                <li><div class="score"><span>Good<em>350 Reviews</em></span><strong>7.0</strong></div></li>
+                                <li>Madiun</li>
+                                <li><div class="score"><span>Booking<em>Status</em></span><strong>UNRESERVE</strong></div></li>
                             </ul>
                         </div>
                     </div>
@@ -255,17 +255,17 @@ function RoomListOwner() {
                             <figure>
                                 <a href="#0" class="wish_bt liked"></a>
                                 <a href="tour-detail.html"><img src="assets/img/tour_4.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Museum</small>
+                                <small>Office</small>
                                 <div class="read_more"><span>Read more</span></div>
                             </figure>
                             <div class="wrapper">
                                 <h3><a href="tour-detail.html">Pompidue Museum</a></h3>
                                 <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">From <strong>$45</strong> /per person</span>
+                                <span class="price">Start from <strong>$45</strong> /per hour</span>
                             </div>
                             <ul>
-                                <li><i class="icon_clock_alt"></i> 2h 30min</li>
-                                <li><div class="score"><span>Superb<em>350 Reviews</em></span><strong>9.0</strong></div></li>
+                                <li>Jakarta</li>
+                                <li><div class="score"><span>Booking<em>Status</em></span><strong>BOOKED</strong></div></li>
                             </ul>
                         </div>
                     </div>
@@ -275,17 +275,17 @@ function RoomListOwner() {
                             <figure>
                                 <a href="#0" class="wish_bt liked"></a>
                                 <a href="tour-detail.html"><img src="assets/img/tour_5.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Walking</small>
+                                <small>Working Space</small>
                                 <div class="read_more"><span>Read more</span></div>
                             </figure>
                             <div class="wrapper">
                                 <h3><a href="tour-detail.html">Tour Eiffel</a></h3>
                                 <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">From <strong>$65</strong> /per person</span>
+                                <span class="price">Start from <strong>$65</strong> /per hour</span>
                             </div>
                             <ul>
-                                <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                                <li><div class="score"><span>Good<em>350 Reviews</em></span><strong>7.5</strong></div></li>
+                                <li>Jakarta Selatan</li>
+                                <li><div class="score"><span>Booking<em>Status</em></span><strong>BOOKED</strong></div></li>
                             </ul>
                         </div>
                     </div>
@@ -295,17 +295,17 @@ function RoomListOwner() {
                             <figure>
                                 <a href="#0" class="wish_bt liked"></a>
                                 <a href="tour-detail.html"><img src="assets/img/tour_6.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Museum</small>
+                                <small>Office</small>
                                 <div class="read_more"><span>Read more</span></div>
                             </figure>
                             <div class="wrapper">
                                 <h3><a href="tour-detail.html">Louvre Museum</a></h3>
                                 <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">From <strong>$95</strong> /per person</span>
+                                <span class="price">Start from <strong>$95</strong> /per hour</span>
                             </div>
                             <ul>
-                                <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                                <li><div class="score"><span>Good<em>350 Reviews</em></span><strong>7.8</strong></div></li>
+                                <li>Sidoarjo</li>
+                                <li><div class="score"><span>Booking<em>Status</em></span><strong>UNRESERVE</strong></div></li>
                             </ul>
                         </div>
                     </div>

@@ -85,7 +85,7 @@ function Dashboard() {
             <div class="container container-custom margin_80_0">
                 <div class="main_title_2">
                     <span><em></em></span>
-                    <h2>Our Popular Tours</h2>
+                    <h2>Our Popular Rooms</h2>
                     <p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
                 </div>
 
@@ -100,17 +100,18 @@ function Dashboard() {
                             <div class="box_grid">
                                 <figure>
                                     <a href="#0" class="wish_bt"></a>
-                                    <Link to={`/roomdetail/${item.id}`}><img src="assets/img/tour_1.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
+                                    <Link to={'/roomdetail/${item.id}'}><img src="assets/img/tour_1.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
                                     <small>Historic</small>
                                 </figure>
                                 <div class="wrapper">
                                     <h3><a href="tour-detail.html">Arc Triomphe</a></h3>
                                     <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                    <span class="price">From <strong>$54</strong> /per person</span>
+                                    <span class="price">Start from <strong>$54</strong> /per hour</span>
                                 </div>
                                 <ul>
-                                    <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                                    <li><div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div></li>
+                                    <li>Jakarta</li>
+                                    <li></li>
+                                    {/* <li><div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div></li> */}
                                 </ul>
                             </div>
                         </div>
@@ -121,17 +122,18 @@ function Dashboard() {
                         <div class="box_grid">
                             <figure>
                                 <a href="#0" class="wish_bt"></a>
-                                <a href="tour-detail.html"><img src="assets/img/tour_1.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></a>
-                                <small>Historic</small>
+                                <Link to="/roomdetail"><img src="assets/img/tour_1.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
+                                <small>Rooms</small>
                             </figure>
                             <div class="wrapper">
-                                <h3><a href="tour-detail.html">Arc Triomphe</a></h3>
+                                <h3><Link to="/roomdetail">Arc Triomphe</Link></h3>
                                 <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">From <strong>$54</strong> /per person</span>
+                                <span class="price">Start from <strong>$54</strong> /per hour</span>
                             </div>
                             <ul>
-                                <li><i class="icon_clock_alt"></i> 1h 30min</li>
-                                <li><div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div></li>
+                                <li>Surabaya</li>
+                                <li></li>
+                                {/* <li><div class="score"><span>Superb<em>350 Reviews</em></span><strong>8.9</strong></div></li> */}
                             </ul>
                         </div>
                     </div>
@@ -139,7 +141,7 @@ function Dashboard() {
                        
                 </div>
                 
-                <p class="btn_home_align"><a href="tours-grid-isotope.html" class="btn_1 rounded">View all Tours</a></p>
+                <p class="btn_home_align"><Link to="/roomlist" class="btn_1 rounded">View all Tours</Link></p>
                 <hr class="large"></hr>
             </div>
 
@@ -163,11 +165,11 @@ function Dashboard() {
                             </li>
                         ))} */}
 
-                        //loop
+                        {/* loop */}
                         <div class="col-xl-3 col-lg-6 col-md-6">
                             <Link to="/roomdetail" class="grid_item">
                                 <figure>
-                                    <div class="score"><strong>BOOKED</strong></div>
+                                    {/* <div class="score"><strong>BOOKED</strong></div> */}
                                     <img src="assets/img/hotel_1.jpg" class="img-fluid" alt=""/>
                                     <div class="info">
                                         <h3>Mariott Hotel</h3>
@@ -186,7 +188,7 @@ function Dashboard() {
                 <div class="banner mb-0">
                     <div class="wrapper d-flex align-items-center opacity-mask" data-opacity-mask="rgba(0, 0, 0, 0.3)">
                         <div>
-                            <small>Recoomendation</small>
+                            <small>Recommendation</small>
                             <h3>Your Perfect<br/> Coworking Experience</h3>
                             <p>Activities and Working</p>
                             {/* <Link to="/roomdetail" class="btn_1">Read more</Link> */}
@@ -217,7 +219,7 @@ function Dashboard() {
                                 <Link to={`/cobadetail/${item.id}`}><button>Detail</button></Link>
                             </li>
                         ))} */}
-                        //loop
+                        {/* loop */}
                         <div class="col-lg-6">
                             <Link to="/roomdetail" class="box_news">
                                 <figure><img src="assets/img/news_home_1.jpg" alt=""/>                                </figure>

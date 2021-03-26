@@ -80,13 +80,13 @@ function RoomList() {
     
             <div class="container margin_60_35">
                 
-                //loop
+                {/* loop */}
                 {list.rooms.map(item => (
                     <div class="box_list">
                         <div class="row no-gutters">
                             <div class="col-lg-5">
                                 <figure>
-                                    <small>Parirs Centre</small>
+                                    <small>Coworking Space</small>
                                     <Link to="/roomdetail"><img src="assets/img/hotel_1.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
                                 </figure>
                             </div>
@@ -96,15 +96,42 @@ function RoomList() {
                                     &nbsp;
                                     <h3><Link to="/roomdetail">Park Hyatt Hotel</Link></h3>
                                     <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no.</p>
-                                    <span class="price">From <strong>$54</strong> /per hour</span>
+                                    <span class="price">Start from <strong>$54</strong> /per hour</span>
                                 </div>
                                 <ul>
-                                    <li>Booking Status: <strong>BOOKED</strong></li>
+                                    <li>Surabaya</li>
+                                    <li></li>
+                                    {/* <li>Booking Status: <strong>BOOKED</strong></li> */}
                                 </ul>
                             </div>
                         </div>
                     </div>
                 ))}
+        
+                <div class="box_list">
+                    <div class="row no-gutters">
+                        <div class="col-lg-5">
+                            <figure>
+                                <small>Coworking Space</small>
+                                <Link to="/roomdetail"><img src="assets/img/hotel_1.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
+                            </figure>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="wrapper">
+                                <a href="#0" class="wish_bt"></a>
+                                &nbsp;
+                                <h3><Link to="/roomdetail">Park Hyatt Hotel</Link></h3>
+                                <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no.</p>
+                                <span class="price">Start from <strong>$54</strong> /per hour</span>
+                            </div>
+                            <ul>
+                                <li>Surabaya</li>
+                                <li></li>
+                                {/* <li>Booking Status: <strong>BOOKED</strong></li> */}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
                 <p class="text-center add_top_60"><a href="#0" class="btn_1 rounded">Load more</a></p>
             
