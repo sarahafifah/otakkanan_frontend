@@ -37,6 +37,7 @@ function RoomDetail() {
                         <div class="container">
                             <ul class="clearfix">
                                 <li><a href="#description" class="active">Description</a></li>
+                                <li><a href="#available">Available</a></li>
                                 <li><a href="#sidebar">Booking</a></li>
                             </ul>
                         </div>
@@ -68,69 +69,79 @@ function RoomDetail() {
                                     </div>
                                     
                                     <hr/>
-                                    <h3>Instagram photos feed</h3>
-                                    <div id="instagram-feed-hotel" class="clearfix"></div>
-                                    <hr/>
-                                    <div class="room_type first">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <img src="assets/img/gallery/hotel_list_1.jpg" class="img-fluid" alt=""/>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h4>Single Room</h4>
-                                                <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-                                                <ul class="hotel_facilities">
-                                                    <li><img src="assets/img/hotel_facilites_icon_2.svg" alt=""/>Single Bed</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_4.svg" alt=""/>Free Wifi</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_5.svg" alt=""/>Shower</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_7.svg" alt=""/>Air Condition</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_8.svg" alt=""/>Hairdryer</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
                                     
-                                    <div class="room_type gray">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <img src="assets/img/gallery/hotel_list_2.jpg" class="img-fluid" alt=""/>
+                                    <section id="available">
+                                        <h3>Available Room</h3>
+                                        <div id="instagram-feed-hotel" class="clearfix"></div>
+                                        <hr/>
+                                        <div class="room_type first">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img src="assets/img/gallery/hotel_list_1.jpg" class="img-fluid" alt=""/>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h4>Single Room</h4>
+                                                    <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
+                                                    <ul class="hotel_facilities">
+                                                        <li><img src="assets/img/hotel_facilites_icon_2.svg" alt=""/>Single Bed</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_4.svg" alt=""/>Free Wifi</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_5.svg" alt=""/>Shower</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_7.svg" alt=""/>Air Condition</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_8.svg" alt=""/>Hairdryer</li>
+                                                    </ul>
+                                                    &nbsp;
+                                                    <p class="price">From <strong>$54</strong> /per hour</p>
+                                                </div>
                                             </div>
-                                            <div class="col-md-8">
-                                                <h4>Double Room</h4>
-                                                <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-                                                <ul class="hotel_facilities">
-                                                    <li><img src="assets/img/hotel_facilites_icon_3.svg" alt=""/>Double Bed</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_4.svg" alt=""/>Free Wifi</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_6.svg" alt=""/>Bathtub</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_7.svg" alt=""/>Air Condition</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_8.svg" alt=""/>Hairdryer</li>
-                                                </ul>
-                                            </div>
+                                            
                                         </div>
                                         
-                                    </div>
+                                        <div class="room_type gray">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img src="assets/img/gallery/hotel_list_2.jpg" class="img-fluid" alt=""/>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h4>Double Room</h4>
+                                                    <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
+                                                    <ul class="hotel_facilities">
+                                                        <li><img src="assets/img/hotel_facilites_icon_3.svg" alt=""/>Double Bed</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_4.svg" alt=""/>Free Wifi</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_6.svg" alt=""/>Bathtub</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_7.svg" alt=""/>Air Condition</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_8.svg" alt=""/>Hairdryer</li>
+                                                    </ul>
+                                                    &nbsp;
+                                                    <p class="price">From <strong>$54</strong> /per hour</p>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        <div class="room_type last">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img src="assets/img/gallery/hotel_list_3.jpg" class="img-fluid" alt=""/>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h4>Suite Room</h4>
+                                                    <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
+                                                    <ul class="hotel_facilities">
+                                                        <li><img src="assets/img/hotel_facilites_icon_3.svg" alt=""/>King size Bed</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_4.svg" alt=""/>Free Wifi</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_6.svg" alt=""/>Bathtub</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_7.svg" alt=""/>Air Condition</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_9.svg" alt=""/>Swimming pool</li>
+                                                        <li><img src="assets/img/hotel_facilites_icon_3.svg" alt=""/>Hairdryer</li>
+                                                    </ul>
+                                                    &nbsp;
+                                                    <p class="price">From <strong>$54</strong> /per hour</p>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </section>
                                     
-                                    <div class="room_type last">
-                                        <div class="row">
-                                            <div class="col-md-4">
-                                                <img src="assets/img/gallery/hotel_list_3.jpg" class="img-fluid" alt=""/>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <h4>Suite Room</h4>
-                                                <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-                                                <ul class="hotel_facilities">
-                                                    <li><img src="assets/img/hotel_facilites_icon_3.svg" alt=""/>King size Bed</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_4.svg" alt=""/>Free Wifi</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_6.svg" alt=""/>Bathtub</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_7.svg" alt=""/>Air Condition</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_9.svg" alt=""/>Swimming pool</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_3.svg" alt=""/>Hairdryer</li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
                                     
                                     <hr/>
                                     <h3>Location</h3>
@@ -144,8 +155,9 @@ function RoomDetail() {
                             <aside class="col-lg-4" id="sidebar">
                                 <div class="box_detail booking">
                                     <div class="price">
-                                        <span>45$ <small>hour</small></span>
-                                        <div class="score"><span>Booking Status<em>Can't Book</em></span></div>
+                                        <span>Book a tour</span>
+                                        <div></div>
+                                        {/* <div class="score"><span>Booking Status<em>Can't Book</em></span></div> */}
                                     </div>
 
                                     <div class="form-group input-dates">
@@ -175,11 +187,11 @@ function RoomDetail() {
                                     <a href="wishlist.html" class="btn_1 full-width outline wishlist"><i class="icon_heart"></i> Add to wishlist</a>
                                     <div class="text-center"><small>No money charged in this step</small></div>
                                 </div>
-                                <ul class="share-buttons">
+                                {/* <ul class="share-buttons">
                                     <li><a class="fb-share" href="#0"><i class="social_facebook"></i> Share</a></li>
                                     <li><a class="twitter-share" href="#0"><i class="social_twitter"></i> Tweet</a></li>
                                     <li><a class="gplus-share" href="#0"><i class="social_googleplus"></i> Share</a></li>
-                                </ul>
+                                </ul> */}
                             </aside>
                         </div>
                     
