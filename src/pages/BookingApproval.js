@@ -1,136 +1,128 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-//import Navbar from '../components/Navbar';
-//import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
+import FooterOwner from '../components/FooterOwner';
 
 function BookingApproval() {
-    return(
-
-    <div class="fixed-nav sticky-footer" id="page-top">
-        
-        <div class="content-wrapper">
-            <div class="container-fluid">
-            
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                <Link to="/">Home</Link>
-                </li>
-                <li class="breadcrumb-item active">Bookings list</li>
-            </ol>
-                <div class="box_general">
-                    <div class="header_box">
-                        <h2 class="d-inline-block">Bookings list</h2>
-                        <div class="filter">
-                            <select name="orderby" class="selectbox">
-                                <option value="Any status">Any status</option>
-                                <option value="Approved">Approved</option>
-                                <option value="Pending">Pending</option>
-                                <option value="Cancelled">Cancelled</option>
-                            </select>
+    return(           
+        <div>            
+            <div id="page">
+                <div class="content-wrapper">
+                    <div class="container-fluid">
+                        
+                        <ol class="breadcrumb">
+                        <Navbar />
+                        </ol>
+                        <Navbar />
+                    <div class="box_general">
+                        <div class="header_box">
+                            <h2 class="d-inline-block">Bookings list</h2>
+                            <div class="filter">
+                                <select name="orderby" class="selectbox">
+                                    <option value="Any status">Any status</option>
+                                    <option value="Approved">Approved</option>
+                                    <option value="Pending">Pending</option>
+                                    <option value="Cancelled">Cancelled</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="list_general">
+                            <ul>
+                                <li>
+                                    <figure><img src="assets/img/item_1.jpg" alt=""/></figure>
+                                    <h4>Hotel Mariott <i class="pending">Pending</i></h4>
+                                    <ul class="booking_list">
+                                        <li><strong>Booking Date</strong> 11 November 2017</li>
+                                        <li><strong>Starting Time</strong> 9 PM</li>
+                                        <li><strong>Duration</strong> 1h 30min</li>
+                                        <li><strong>Booking details</strong> Suite Room</li>
+                                        <li><strong>Client</strong> Mark Twain</li>
+                                    </ul>
+                                    <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+                                    <ul class="buttons">
+                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+                                        <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <figure><img src="assets/img/item_2.jpg" alt=""/></figure>
+                                    <h4>Da Alfredo <i class="cancel">Cancelled</i></h4>
+                                    <ul class="booking_list">
+                                        <li><strong>Booking date</strong> 11 November 2017</li>
+                                        <li><strong>Starting Time</strong> 10 AM</li>
+                                        <li><strong>Duration</strong> 30 minute</li>
+                                        <li><strong>Booking details</strong> Single Room</li>
+                                        <li><strong>Client</strong> Mark Twain</li>
+                                    </ul>
+                                    <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+                                    <ul class="buttons">
+                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+                                        <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <figure><img src="assets/img/item_3.jpg" alt=""/></figure>
+                                    <h4>Pompidue Museum <i class="approved">Approved</i></h4>
+                                    <ul class="booking_list">
+                                        <li><strong>Booking date</strong> 11 November 2017</li>
+                                        <li><strong>Starting Time</strong> 8 PM</li>
+                                        <li><strong>Duration</strong> 2 hour</li>
+                                        <li><strong>Booking details</strong> Double Room</li>
+                                        <li><strong>Client</strong> Mark Twain</li>
+                                    </ul>
+                                    <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+                                    <ul class="buttons">
+                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
+                                        <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="list_general">
-                        <ul>
-                            <li>
-                                <figure><img src="assets/img/item_1.jpg" alt=""/></figure>
-                                <h4>Hotel Mariott <i class="pending">Pending</i></h4>
-                                <ul class="booking_list">
-                                    <li><strong>Booking Date</strong> 11 November 2017</li>
-                                    <li><strong>Starting Time</strong> 9 PM</li>
-                                    <li><strong>Duration</strong> 1h 30min</li>
-                                    <li><strong>Booking details</strong> Suite Room</li>
-                                    <li><strong>Client</strong> Mark Twain</li>
-                                </ul>
-                                <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
-                                <ul class="buttons">
-                                    <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-                                    <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-                                </ul>
+            
+                    <nav aria-label="...">
+                        <ul class="pagination pagination-sm add_bottom_30">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
                             </li>
-                            <li>
-                                <figure><img src="assets/img/item_2.jpg" alt=""/></figure>
-                                <h4>Da Alfredo <i class="cancel">Cancelled</i></h4>
-                                <ul class="booking_list">
-                                    <li><strong>Booking date</strong> 11 November 2017</li>
-                                    <li><strong>Starting Time</strong> 10 AM</li>
-                                    <li><strong>Duration</strong> 30 minute</li>
-                                    <li><strong>Booking details</strong> Single Room</li>
-                                    <li><strong>Client</strong> Mark Twain</li>
-                                </ul>
-                                <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
-                                <ul class="buttons">
-                                    <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-                                    <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <figure><img src="assets/img/item_3.jpg" alt=""/></figure>
-                                <h4>Pompidue Museum <i class="approved">Approved</i></h4>
-                                <ul class="booking_list">
-                                    <li><strong>Booking date</strong> 11 November 2017</li>
-                                    <li><strong>Starting Time</strong> 8 PM</li>
-                                    <li><strong>Duration</strong> 2 hour</li>
-                                    <li><strong>Booking details</strong> Double Room</li>
-                                    <li><strong>Client</strong> Mark Twain</li>
-                                </ul>
-                                <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
-                                <ul class="buttons">
-                                    <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-                                    <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-                                </ul>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            
-                <nav aria-label="...">
-                    <ul class="pagination pagination-sm add_bottom_30">
-                        <li class="page-item disabled">
-                            <a class="page-link" href="#" tabindex="-1">Previous</a>
-                        </li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item">
-                            <a class="page-link" href="#">Next</a>
-                        </li>
-                    </ul>
-                </nav>
+                    </nav>
                 
-            </div>
-            
-            </div>
-            
-            <footer class="sticky-footer">
-            <div class="container">
-                <div class="text-center">
-                <small>Copyright © PANAGEA 2018</small>
                 </div>
+            
             </div>
-            </footer>
+            
+            <FooterOwner />
         
             <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fa fa-angle-up"></i>
+                <i class="fa fa-angle-up"></i>
             </a>
         
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">×</span>
-                    </button>
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
+                    </div>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-                </div>
-            </div>
             </div>
             
+            </div>
         </div>
 
     );
