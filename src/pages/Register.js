@@ -9,9 +9,9 @@ function Register() {
 		
 		<nav id="menu" class="fake_menu"></nav>
 		
-		<div id="preloader">
+		{/* <div id="preloader">
 			<div data-loader="circle-side"></div>
-		</div>
+		</div> */}
 		
 		<div id="login">
 			<aside>
@@ -49,18 +49,15 @@ function Register() {
 						<input class="form-control" type="text"/>
 						<i class="icon_mobile"></i>
 					</div>
-					{/* <div class="form-group clearfix">
+					<div class="form-group">
 						<label>Role</label>
-						<div class="custom-select-form">
-                            <select class="wide">
-                                <option>Role</option>	
-                                <option>Owner</option>
-                                <option>Visitors</option>
-                            </select>
-                        </div>
-						<input class="form-control" type="text"/>
-						<i class="ti-user"></i>
-					</div> */}
+							<div class="role-option" >
+								<select>
+									<option>Owner</option>
+									<option>Visitors</option>
+								</select>
+							</div>						
+					</div>
 					<div id="pass-info" class="clearfix"></div>
 					<a href="#0" class="btn_1 rounded full-width add_top_30">Register Now!</a>
 					<div class="text-center add_top_10">Already have an acccount? <strong><Link to="/login">Sign In</Link></strong></div>
