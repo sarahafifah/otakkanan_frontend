@@ -5,15 +5,10 @@ import FooterOwner from '../components/FooterOwner';
 
 function BookingApproval() {
     return(           
-        <div>            
-            <div id="page">
-                <div class="content-wrapper">
-                    <div class="container-fluid">
-                        
-                        <ol class="breadcrumb">
-                        <Navbar />
-                        </ol>
-                        <Navbar />
+        <div class="fixed-nav sticky-footer" id="page-top">          
+            <Navbar />  
+                <div class="content-wrapper" style={{backgroundColor: '#707070'}}>
+                    <div class="container-fluid">             
                     <div class="box_general">
                         <div class="header_box">
                             <h2 class="d-inline-block">Bookings list</h2>
@@ -122,7 +117,6 @@ function BookingApproval() {
                 </div>
             </div>
             
-            </div>
         </div>
 
     );

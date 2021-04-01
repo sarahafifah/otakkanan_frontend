@@ -292,7 +292,8 @@ body.sidenav-toggled #mainNav.static-top #sidenavToggler i {
 }
 @media (min-width: 992px) {
   .content-wrapper {
-    margin-left: 250px;
+    padding-top: 100px;
+    padding-bottom: 50px;
   }
 }
 
@@ -445,12 +446,11 @@ footer.sticky-footer {
   bottom: 0;
   width: 100%;
   height: 56px;
-  border-top: 1px solid #ededed;
   line-height: 55px;
 }
 @media (min-width: 992px) {
   footer.sticky-footer {
-    width: calc(100% - 250px);
+    width: 100%;
   }
 }
 
@@ -473,9 +473,7 @@ body {
   background: #f8f8f8;
 }
 
-h1,
 h2,
-h3,
 h4,
 h5,
 h6 {
