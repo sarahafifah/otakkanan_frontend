@@ -24,6 +24,8 @@ function routes() {
                 <Route path='/bookingapprove' component={BookingApproval}/>
                 <Route path='/createoffice' component={CreateNewOffice}/>
                 <Route path='/ownersroom' component={RoomListOwner}/>
+                <Route path='/sign-in' exact component={Login}/>
+                <Route path='/sign-up' exact component={Register}/>
             </Switch>
         </Router>
     );
