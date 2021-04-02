@@ -80,23 +80,38 @@ function RoomList() {
     
             <div class="container margin_60_35">
                 
+<<<<<<< Updated upstream
                 {/* loop */}
+=======
+                
+>>>>>>> Stashed changes
                 {list.rooms.map(item => (
                     <div class="box_list">
                         <div class="row no-gutters">
                             <div class="col-lg-5">
                                 <figure>
+<<<<<<< Updated upstream
                                     <small>Coworking Space</small>
                                     <Link to="/roomdetail"><img src="assets/img/hotel_1.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
+=======
+                                    <small>{item.name}</small>
+                                    <Link to={`/roomdetail/${item.id}`}><img src="http://localhost:8000/storage/otakkanan/gallery/zulfauzi/1616727491.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
+>>>>>>> Stashed changes
                                 </figure>
                             </div>
                             <div class="col-lg-7">
                                 <div class="wrapper">
                                     <a href="#0" class="wish_bt"></a>
                                     &nbsp;
+<<<<<<< Updated upstream
                                     <h3><Link to="/roomdetail">Park Hyatt Hotel</Link></h3>
                                     <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no.</p>
                                     <span class="price">Start from <strong>$54</strong> /per hour</span>
+=======
+                                    <h3><Link to={`/roomdetail/${item.id}`}>{item.name}</Link></h3>
+                                    <p>{item.description}</p>
+                                    <span class="price">From <strong>$54</strong> /per hour</span>
+>>>>>>> Stashed changes
                                 </div>
                                 <ul>
                                     <li>Surabaya</li>
