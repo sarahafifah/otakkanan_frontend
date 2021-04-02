@@ -5,19 +5,10 @@ import FooterOwner from '../components/FooterOwner';
 
 function CreateNewOffice() {
     return(
-		<div>
+		<div class="fixed-nav sticky-footer" id="page-top" >
 			<Navbar />
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<div id="page">
-				<div class="content-wrapper">
+				<div class="content-wrapper" style={{backgroundColor: '#707070'}}>
 						<div class="container-fluid">
-								{/* <ol class="breadcrumb">
-									<li class="breadcrumb-item">
-										<Link to="/">Home</Link>
-									</li>
-									<li class="breadcrumb-item active">Add listing</li>
-								</ol> */}
-								<Navbar />
 								<div class="box_general padding_bottom">
 									<div class="header_box version_2">
 										<h2><i class="fa fa-file"></i>Basic info</h2>
@@ -196,6 +187,46 @@ function CreateNewOffice() {
 									</div>		
 								</div>
 
+								<div class="box_general padding_bottom">
+									<div class="header_box version_2">
+										<h2><i class="fa fa-tv"></i>Facility</h2>
+									</div>
+									<div class="row">
+										<div class="col-md-12">
+											<h6>Item</h6>
+											<table id="pricing-list-container" style={{width:`100%`}}>
+												<tr class="pricing-list-item">
+													<td>
+														<div class="row">
+															<div class="col-md-4">
+																<div class="form-group">
+																	<input type="text" class="form-control" placeholder="Name"/>
+																</div>
+															</div>
+															{/* <div class="col-md-4">
+																<div class="form-group">
+																	<input type="text" class="form-control" placeholder="Description"/>
+																</div>
+															</div> */}
+															<div class="col-md-2">
+																<div class="form-group">
+																	<input type="text" class="form-control"  placeholder="Status"/>
+																</div>
+															</div>
+															<div class="col-md-2">
+																<div class="form-group">
+																	<a class="delete" href="#"><i class="fa fa-fw fa-remove"></i></a>
+																</div>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</table>
+											<a href="#0" class="btn_1 gray add-pricing-list-item"><i class="fa fa-fw fa-plus-circle"></i>Add Item</a>
+											</div>
+									</div>
+									
+								</div>
 
 								<div class="box_general padding_bottom">
 									<div class="header_box version_2">
@@ -643,7 +674,6 @@ function CreateNewOffice() {
 							</div>
 						</div>
 					</div>
-				</div>
 			</div>
 	);
 }
