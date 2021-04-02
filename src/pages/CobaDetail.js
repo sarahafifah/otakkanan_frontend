@@ -12,7 +12,7 @@ const CobaDetail = () => {
 
     
     let { room_id } = useParams();
-    console.log(room_id);
+    //console.log(room_id);
 
     React.useEffect(() => {
       const fetchData = async () => {

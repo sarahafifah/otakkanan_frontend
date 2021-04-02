@@ -16,5 +16,7 @@ export const REGISTER_API = `${BASE_URL}/register`;
 export const GET_DETAIL_ROOM = (roomId) =>
     `${BASE_URL}/room/show/${roomId}`;
 
+export const GET_HOME = () => 
+    `${BASE_URL}/room/home`;
 export const GET_ROOMS = () => 
     `${BASE_URL}/room/read`;
