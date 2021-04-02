@@ -10,9 +10,9 @@ function Login() {
 		
 		<nav id="menu" class="fake_menu"></nav>
 		
-		<div id="preloader">
+		{/* <div id="preloader">
 			<div data-loader="circle-side"></div>
-		</div>
+		</div> */}
 
 
 		<div id="login">
