@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 
 export const SERVER_NAME = "http://localhost:8000";
 const BASE_URL = SERVER_NAME + "/api";
+export const STORAGE_URL = SERVER_NAME + "/storage/";
 
 let JWT = null;
 if (Cookies.getJSON("USER") !== undefined) JWT = Cookies.getJSON("USER").token;
@@ -18,5 +19,8 @@ export const GET_DETAIL_ROOM = (roomId) =>
 
 export const GET_HOME = () => 
     `${BASE_URL}/room/home`;
+
 export const GET_ROOMS = () => 
     `${BASE_URL}/room/read`;
+
+export const CREATE_OFFICE = `${BASE_URL}/my-office/create`;
