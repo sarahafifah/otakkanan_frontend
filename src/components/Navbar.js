@@ -18,10 +18,10 @@ function Navbar() {
       <header class="header menu_fixed">
             {/* <div id="preloader"><div data-loader="circle-side"></div></div> */}
             <div id="logo">
-                <a href="index.html">
+            <Link to="/">
                     <img src="assets/img/logo.svg" width="150" height="36" alt="" class="logo_normal"/>
                     <img src="assets/img/logo_sticky.svg" width="150" height="36" alt="" class="logo_sticky"/> 
-                </a>
+                </Link>
             </div>
         
             <a href="#menu" class="btn_mobile">
@@ -35,9 +35,17 @@ function Navbar() {
                 <ul>
                     <li><span><Link to="/">Home</Link></span></li>
                     <li><span><Link to="/roomlist">Room</Link></span></li>
+                    <li><span><Link>Owner</Link></span>
+                        <ul>
+                          <li><Link to="/createoffice">Create Office</Link></li>
+                          <li><Link to="/bookingapprove">Booking Approval</Link></li>
+                          <li><Link to="/ownersroom">Room List</Link></li>
+                        </ul>
+                    </li>
                     <li><span><Link to="/about">About</Link></span></li>
-                    <li><span><Link to="/sign-in">Sign In</Link></span></li>
-                    <li><span><Link to="/sign-up">Sign Up</Link></span></li>
+                    <li><span><Link to="/login">Login</Link></span></li>
+                    <li><span><Link to="/register">Register</Link></span></li>
+                    
                 </ul>
             </nav>
         </header>

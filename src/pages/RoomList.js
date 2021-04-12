@@ -2,8 +2,35 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import axios from 'axios';
+import { GET_ROOMS, STORAGE_URL } from '../constants/urls';
 
 function RoomList() {
+
+
+    const [list, setRooms] = React.useState({rooms: []});
+    const [isLoading, setIsLoading] = React.useState(true);
+
+    React.useEffect(() => {
+      const fetchData = async () => {
+        setIsLoading(true);
+        await axios
+          .get(GET_ROOMS(), {
+            headers: {},
+          })
+          .then((res) => {
+            console.log(res.data);
+            setRooms(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        setIsLoading(false);
+      };
+      fetchData();
+    }, []);
+
+
     return(
     <div>
     <div id="page">		
@@ -52,122 +79,37 @@ function RoomList() {
            
     
             <div class="container margin_60_35">
-                <div class="box_list">
-                    <div class="row no-gutters">
-                        <div class="col-lg-5">
-                            <figure>
-                                <small>Parirs Centre</small>
-                                <Link to="/roomdetail"><img src="assets/img/hotel_1.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
-                            </figure>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="wrapper">
-                                <a href="#0" class="wish_bt"></a>
-                                &nbsp;
-                                <h3><Link to="/roomdetail">Park Hyatt Hotel</Link></h3>
-                                <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no.</p>
-                                <span class="price">From <strong>$54</strong> /per hour</span>
+                {list.rooms.map(item => (
+                    <div class="box_list">
+                        <div class="row no-gutters">
+                            <div class="col-lg-5">
+                                <figure>
+
+                                    <small>{item.name}</small>
+                                    <Link to={`/roomdetail/${item.id}`}><img src={STORAGE_URL + item.filename} class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
+
+                                </figure>
                             </div>
-                            <ul>
-                                <li>Booking Status: <strong>BOOKED</strong></li>
-                            </ul>
+                            <div class="col-lg-7">
+                                <div class="wrapper">
+                                    <a href="#0" class="wish_bt"></a>
+                                    &nbsp;
+
+                                    <h3><Link to={`/roomdetail/${item.id}`}>{item.name}</Link></h3>
+                                    <p>{item.description}</p>
+                                    <span class="price">From <strong>$54</strong> /per hour</span>
+
+                                </div>
+                                <ul>
+                                    <li>Surabaya</li>
+                                    <li></li>
+                                    {/* <li>Booking Status: <strong>BOOKED</strong></li> */}
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <div class="box_list">
-                    <div class="row no-gutters">
-                        <div class="col-lg-5">
-                            <figure>
-                                <small>Parirs Centre</small>
-                                <Link to="/roomdetail"><img src="assets/img/hotel_2.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
-                            </figure>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="wrapper">
-                                <a href="#0" class="wish_bt"></a>
-                                &nbsp;
-                                <h3><Link to="/roomdetail">Mariott Hotel</Link></h3>
-                                <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no.</p>
-                                <span class="price">From <strong>$124</strong> /per hour</span>
-                            </div>
-                            <ul>
-                                <li>Booking Status: <strong>UNRESERVE</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="box_list">
-                    <div class="row no-gutters">
-                        <div class="col-lg-5">
-                            <figure>
-                                <small>Parirs Centre</small>
-                                <Link to="/roomdetail"><img src="assets/img/hotel_3.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
-                            </figure>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="wrapper">
-                                <a href="#0" class="wish_bt"></a>
-                                &nbsp;
-                                <h3><Link to="/roomdetail">Lumiere Hotel</Link></h3>
-                                <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no.</p>
-                                <span class="price">From <strong>$45</strong> /per hour</span>
-                            </div>
-                            <ul>
-                                <li>Booking Status: <strong>BOOKED</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="box_list">
-                    <div class="row no-gutters">
-                        <div class="col-lg-5">
-                            <figure>
-                                <small>Parirs Centre</small>
-                                <Link to="/roomdetail"><img src="assets/img/hotel_4.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
-                            </figure>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="wrapper">
-                                <a href="#0" class="wish_bt"></a>
-                                &nbsp;
-                                <h3><Link to="/roomdetail">Louvre Hotel</Link></h3>
-                                <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no.</p>
-                                <span class="price">From <strong>$25</strong> /per hour</span>
-                            </div>
-                            <ul>
-                                <li>Booking Status: <strong>UNRESERVE</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="box_list">
-                    <div class="row no-gutters">
-                        <div class="col-lg-5">
-                            <figure>
-                                <small>Parirs Centre</small>
-                                <Link to="/roomdetail"><img src="assets/img/hotel_5.jpg" class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
-                            </figure>
-                        </div>
-                        <div class="col-lg-7">
-                            <div class="wrapper">
-                                <a href="#0" class="wish_bt"></a>
-                                &nbsp;
-                                <h3><Link to="/roomdetail">Concorde Hotel</Link></h3>
-                                <p>Dicam diceret ut ius, no epicuri dissentiet philosophia vix. Id usu zril tacimates neglegentur. Eam id legimus torquatos cotidieque, usu decore percipitur definitiones ex, nihil utinam recusabo mel no.</p>
-                                <span class="price">From <strong>$65</strong> /per hour</span>
-                            </div>
-                            <ul>
-                                <li>Booking Status: <strong>BOOKED</strong></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                
+                ))}
+                        
                 <p class="text-center add_top_60"><a href="#0" class="btn_1 rounded">Load more</a></p>
             
             </div>
@@ -208,7 +150,7 @@ function RoomList() {
 
         </div>
         
-        <div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
+        {/* <div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
             <div class="small-dialog-header">
                 <h3>Sign In</h3>
             </div>
@@ -252,7 +194,7 @@ function RoomList() {
                 </div>
             </form>
         
-        </div>
+        </div> */}
         
         
         <div id="toTop"></div>

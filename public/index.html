@@ -10,10 +10,27 @@
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Main styles -->
+    <link href="assets/admin_section/css/admin.css" rel="stylesheet">
+
+    <!-- Bootstrap core CSS-->
+    <link href="assets/admin_section/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icon fonts-->
+    <link href="assets/admin_section/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
     <!-- BASE CSS -->
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/vendors.css" rel="stylesheet">
+    
+    <!-- Plugin styles -->
+    <link href="assets/admin_section/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="assets/admin_section/vendor/dropzone.css" rel="stylesheet">
+    <link href="assets/admin_section/css/date_picker.css" rel="stylesheet">
+
+    <!-- WYSIWYG Editor -->
+    <link rel="stylesheet" href="assets/admin_section/js/editor/summernote-bs4.css">
 
     <!-- YOUR CUSTOM CSS -->
     <link href="assets/css/custom.css" rel="stylesheet">
@@ -85,54 +102,7 @@
             });
           </script>
 
-          <!-- TAMBAHAN -->
-         <!-- USER -->
-            	<!-- SPECIFIC SCRIPTS -->
-            	<script src="js/pw_strenght.js"></script>
-              <!-- WISHLIST -->
-              <script>
-                $('.wish_bt.liked').on('click', function (c) {
-                  $(this).parent().parent().parent().fadeOut('slow', function (c) {});
-                });
-              </script>
-              
-         <!-- OWNER -->
-            <!-- Bootstrap core JavaScript-->
-            <script src="assets/admin_section/vendor/jquery/jquery.min.js"></script>
-            <script src="assets/admin_section/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-            <!-- Core plugin JavaScript-->
-            <script src="assets/admin_section/vendor/jquery-easing/jquery.easing.min.js"></script>
-            <!-- Page level plugin JavaScript-->
-            <script src="assets/admin_section/vendor/chart.js/Chart.min.js"></script>
-            <script src="assets/admin_section/vendor/datatables/jquery.dataTables.js"></script>
-            <script src="assets/admin_section/vendor/datatables/dataTables.bootstrap4.js"></script>
-            <script src="assets/admin_section/vendor/jquery.selectbox-0.2.js"></script>
-            <script src="assets/admin_section/vendor/retina-replace.min.js"></script>
-            <script src="assets/admin_section/vendor/jquery.magnific-popup.min.js"></script>
-            <!-- Custom scripts for all pages-->
-            <script src="assets/admin_section/js/admin.js"></script>
-
-            <!-- Custom scripts for this page-->
-            <script src="vendor/admin_section/dropzone.min.js"></script>
-            <script src="vendor/admin_section/bootstrap-datepicker.js"></script>
-            <script>$('input.date-pick').datepicker();</script>
-            <!-- WYSIWYG Editor -->
-            <script src="assets/admin_section/js/editor/summernote-bs4.min.js"></script>
-            <script>
-                $('.editor').summernote({
-              fontSizes: ['10', '14'],
-              toolbar: [
-                // [groupName, [list of button]]
-                ['style', ['bold', 'italic', 'underline', 'clear']],
-                ['font', ['strikethrough']],
-                ['fontsize', ['fontsize']],
-                ['para', ['ul', 'ol', 'paragraph']]
-                ],
-                  placeholder: 'Write here your description....',
-                  tabsize: 2,
-                  height: 200
-                });
-              </script>
+           
           
   </body>
 </html>
