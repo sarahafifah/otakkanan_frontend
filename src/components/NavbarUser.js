@@ -18,7 +18,7 @@ function Navbar() {
       <header class="header menu_fixed">
             {/* <div id="preloader"><div data-loader="circle-side"></div></div> */}
             <div id="logo">
-            <Link to="/">
+            <Link to="/user">
                     <img src="assets/img/logo.svg" width="150" height="36" alt="" class="logo_normal"/>
                     <img src="assets/img/logo_sticky.svg" width="150" height="36" alt="" class="logo_sticky"/> 
                 </Link>
@@ -33,11 +33,23 @@ function Navbar() {
             </a>
             <nav id="menu" class="main-menu" >
                 <ul>
-                    <li><span><Link to="/">Home</Link></span></li>
-                    <li><span><Link to="/roomlist">Room</Link></span></li>
-                    <li><span><Link to="/about">About</Link></span></li>
-                    <li><span><Link to="/login">Login</Link></span></li>
-                    <li><span><Link to="/register">Register</Link></span></li>
+                    <li><span><Link to="/user">Home</Link></span></li>
+                    <li><span><Link to="/roomlistuser">Room</Link></span></li>
+                    <li><span><Link>My Booking</Link></span>
+                        <ul>
+                          <li><Link to="/pendinglist">Pending List</Link></li>
+                          <li><Link to="/approvedlist">Approved List</Link></li>
+                          <li><Link to="/declinedlist">Declined List</Link></li>
+                        </ul>
+                        
+                    </li>
+                    <li><span><Link>User</Link></span>
+                        <ul>
+                          <li><Link to="/mybooking">My Profile</Link></li>
+                          <li><Link to="/user">Logout</Link></li>
+                        </ul>
+                    </li>
+                    <li><span><Link to="/aboutuser">About</Link></span></li>
                     
                 </ul>
             </nav>

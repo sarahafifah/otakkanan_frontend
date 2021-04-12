@@ -63,17 +63,17 @@ function Register() {
 		email: email,
 		password: password,
 		password_confirmation: passwordConfirmation,
-		role: "user",
+		role: role,
 		})
 		.then((res) => {
-		setUserLogin({
-			token: res.data.token,
-			user: res.data.user,
-			status: res.data.status
-		});
+		// setUserLogin({
+		// 	token: res.data.token,
+		// 	user: res.data.user,
+		// 	status: res.data.status
+		// });
 		setIsLoggedIn(true);
 		setLoading(false);
-		window.location = "/";
+		window.location = "/sign-in";
 		})
 		.catch((err) => {
 		console.log(err.response.data);

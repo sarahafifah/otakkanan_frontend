@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/NavbarOwner';
+import Navbar from '../components/NavbarUser';
 import FooterOwner from '../components/FooterOwner';
 
-function BookingApproval() {
+function MyBooking() {
     return(           
         <div class="fixed-nav sticky-footer" id="page-top">          
             <Navbar />  
@@ -12,14 +12,7 @@ function BookingApproval() {
                     <div class="box_general">
                         <div class="header_box">
                             <h2 class="d-inline-block">Bookings list</h2>
-                            <div class="filter">
-                                <select name="orderby" class="selectbox">
-                                    <option value="Any status">Any status</option>
-                                    <option value="Approved">Approved</option>
-                                    <option value="Pending">Pending</option>
-                                    <option value="Cancelled">Cancelled</option>
-                                </select>
-                            </div>
+                            
                         </div>
                         <div class="list_general">
                             <ul>
@@ -31,12 +24,11 @@ function BookingApproval() {
                                         <li><strong>Starting Time</strong> 9 PM</li>
                                         <li><strong>Duration</strong> 1h 30min</li>
                                         <li><strong>Booking details</strong> Suite Room</li>
-                                        <li><strong>Client</strong> Mark Twain</li>
+                                        <li><strong>Owner</strong> Mark Twain</li>
                                     </ul>
                                     <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
                                     <ul class="buttons">
-                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-                                        <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Invoice</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -51,8 +43,7 @@ function BookingApproval() {
                                     </ul>
                                     <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
                                     <ul class="buttons">
-                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-                                        <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Invoice</a></li>
                                     </ul>
                                 </li>
                                 <li>
@@ -67,27 +58,12 @@ function BookingApproval() {
                                     </ul>
                                     <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
                                     <ul class="buttons">
-                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-                                        <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
+                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Invoice</a></li>
                                     </ul>
                                 </li>
                             </ul>
                         </div>
                     </div>
-            
-                    <nav aria-label="...">
-                        <ul class="pagination pagination-sm add_bottom_30">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
                 
                 </div>
             
@@ -122,4 +98,4 @@ function BookingApproval() {
     );
 }
     
-export default BookingApproval;
+export default MyBooking;
