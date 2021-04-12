@@ -144,7 +144,7 @@ function Dashboard() {
                         <div class="col-xl-3 col-lg-6 col-md-6">
                             <Link to="/roomdetail" class="grid_item">
                                 <figure>
-                                    <div class="score"><strong>BOOKED</strong></div>
+                                    
                                     <img src="assets/img/hotel_1.jpg" class="img-fluid" alt=""/>
                                     <div class="info">
                                         <h3>Mariott Hotel</h3>
