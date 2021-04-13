@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { GET_HOME,JWT_HEADER } from '../constants/urls';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/NavbarUser';
 import Footer from '../components/Footer';
 
 function Dashboard() {
@@ -144,7 +144,7 @@ function Dashboard() {
                         <div class="col-xl-3 col-lg-6 col-md-6">
                             <Link to="/roomdetail" class="grid_item">
                                 <figure>
-                                    
+                                    <div class="score"><strong>BOOKED</strong></div>
                                     <img src="assets/img/hotel_1.jpg" class="img-fluid" alt=""/>
                                     <div class="info">
                                         <h3>Mariott Hotel</h3>

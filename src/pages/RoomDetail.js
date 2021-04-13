@@ -212,16 +212,15 @@ function RoomDetail() {
                         
                         
                             <aside class="col-lg-4" id="sidebar">
-                                <div class="box_detail booking">
-                                    <div class="price">
-                                        <span>Book a tour</span>
-                                        <div></div>
-                                        {/* <div class="score"><span>Booking Status<em>Can't Book</em></span></div> */}
-                                    </div>
+                                
+                                    
 
                                     <div class="form-group input-dates">
-                                        <input class="form-control" type="text" name="dates" placeholder="When.."/>
-                                        <i class="icon_calendar"></i>
+                                    <div class="header_box version_2">
+										<h2>Booking</h2>
+									</div>
+                                    <input class="form-control" type="text" name="dates" placeholder="When.."/>
+                                        
                                     </div>
 
                                     <div class="form-group input-date">
@@ -232,26 +231,31 @@ function RoomDetail() {
                                         <input class="form-control" type="text" name="dates" placeholder="Duration"/>
                                     </div>
 
-                                    <div class="form-group clearfix">
-                                        <div class="custom-select-form">
-                                            <select class="wide">
-                                                <option>Room Type</option>	
-                                                <option>Single Room</option>
-                                                <option>Double Room</option>
-                                                <option>Suite Room</option>
-                                            </select>
-                                        </div>
+                                    <div class="form-group">
+                                        <select class="form-control">
+                                            <option>Room Type</option>	
+                                            <option>Single Room</option>
+                                            <option>Double Room</option>
+                                            <option>Suite Room</option>
+                                        </select>
                                     </div>
+
+                                    
+                                    
+                                        
                                     <a href="cart-1.html" class=" add_top_30 btn_1 full-width purchase">Purchase</a>
                                     <a href="wishlist.html" class="btn_1 full-width outline wishlist"><i class="icon_heart"></i> Add to wishlist</a>
                                     <div class="text-center"><small>No money charged in this step</small></div>
-                                </div>
+                                
                                 {/* <ul class="share-buttons">
                                     <li><a class="fb-share" href="#0"><i class="social_facebook"></i> Share</a></li>
                                     <li><a class="twitter-share" href="#0"><i class="social_twitter"></i> Tweet</a></li>
                                     <li><a class="gplus-share" href="#0"><i class="social_googleplus"></i> Share</a></li>
                                 </ul> */}
                             </aside>
+
+                            
+
                         </div>
                     
                 </div>
