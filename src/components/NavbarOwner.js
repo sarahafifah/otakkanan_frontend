@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,  useHistory } from 'react-router-dom';
+import { logout } from "../utils/auth";
+
 
 function Navbar() {
 
@@ -13,15 +15,21 @@ function Navbar() {
     }
   }, []);
 
+  const history = useHistory();
+  const onLogout = () => {
+    logout();
+    history.replace("/sign-in");
+  };
+
   return (
     <>
       <header class="header menu_fixed">
             {/* <div id="preloader"><div data-loader="circle-side"></div></div> */}
             <div id="logo">
             <Link to="/ownersroom">
-                    <img src="assets/img/logo.svg" width="150" height="36" alt="" class="logo_normal"/>
-                    <img src="assets/img/logo_sticky.svg" width="150" height="36" alt="" class="logo_sticky"/> 
-                </Link>
+                  <img src="assets/img/otakkananlogo.png" width="160" height="50" alt="" class="logo_normal"/>
+                  <img src="assets/img/otakkananlogo.png" width="160" height="50" alt="" class="logo_sticky"/> 
+            </Link>
             </div>
         
             <a href="#menu" class="btn_mobile">
@@ -39,7 +47,7 @@ function Navbar() {
                           <li><Link to="/ownersroom">My Office</Link></li>
                           <li><Link to="/createoffice">Create Office</Link></li>
                           <li><Link to="/ownersroom">My Profile</Link></li>
-                          <li><Link to="/owner">Logout</Link></li>
+                          <li><Link to="/" onClick={onLogout}>Logout</Link></li>
                         </ul>
                     </li>
                     <li><span><Link to="/aboutowner">About</Link></span></li>

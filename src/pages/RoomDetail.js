@@ -2,11 +2,17 @@ import React, { useEffect } from 'react';
 //import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
 import { useParams } from "react-router";
-import { GET_DETAIL_ROOM, JWT_HEADER } from '../constants/urls'
+import { Link } from 'react-router-dom';
+import { GET_DETAIL_ROOM, STORAGE_URL } from '../constants/urls'
 import axios from 'axios';
 
 function RoomDetail() {    
     const [room, setRoomDetail] = React.useState({detail_room: {}});
+    const [room_type, setRoomType] = React.useState([]);
+    const [facility, setFacility] = React.useState([]);
+    const [gallery, setGallery] = React.useState([]);
+    const [room_function, setRoomFunction] = React.useState([]);
+    const [operational_times, setOperationalTimes] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
 
     
@@ -14,14 +20,9 @@ function RoomDetail() {
     //console.log(room_id);
 
     useEffect(() => {
-        const script = document.createElement('script');
-        script.src = "./assets/js/main.js";
-        script.async = true;
-        document.body.appendChild(script);
+
         fetchData(room_id);
-        return () => {
-          document.body.removeChild(script);
-        }
+  
     }, []);
 
     const fetchData = async (room_id) => {
@@ -31,7 +32,14 @@ function RoomDetail() {
             headers: {},
           })
           .then((res) => {
+            console.log(res.data);
             setRoomDetail(res.data);
+            setRoomType(res.data.detail_room.room_type);
+            setFacility(res.data.detail_room.facility);
+            setGallery(res.data.detail_room.gallery);
+            setRoomFunction(res.data.detail_room.room_function);
+            setOperationalTimes(res.data.detail_room.operational_times);
+            
           })
           .catch((err) => {
             console.log(err);
@@ -52,9 +60,10 @@ function RoomDetail() {
                             <h1 class="fadeInUp"><span></span>{room.detail_room.name}</h1>
                         </div>
                         <span class="magnific-gallery">
-                            <a href="img/gallery/hotel_list_1.jpg" class="btn_photos" title="Photo title" data-effect="mfp-zoom-in">View photos</a>
-                            <a href="img/gallery/hotel_list_2.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
-                            <a href="img/gallery/hotel_list_3.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
+                            
+                            {gallery.map(item => (
+                                <Link to={STORAGE_URL + item.filename} class="btn_photos" title="Photo title" data-effect="mfp-zoom-in">View photos</Link>
+                            ))}
                         </span>
                     </div>
                 </section>
@@ -65,7 +74,8 @@ function RoomDetail() {
                         <div class="container">
                             <ul class="clearfix">
                                 <li><a href="#description" class="active">Description</a></li>
-                                <li><a href="#available">Available</a></li>
+                                <li><a href="#location" class="active">Locations</a></li>
+                                <li><a href="#roomtype">RoomType</a></li>
                                 <li><a href="#facility">Facility</a></li>
                                 <li><a href="#roomfunction">Function</a></li>
                                 <li><a href="#operationaltimes">Operational</a></li>
@@ -78,84 +88,44 @@ function RoomDetail() {
                             <div class="col-lg-8">
                                 <section id="description">
                                     <h2>Description</h2>
-                                    <p>{room.detail_room.description} <strong>temporibus vim</strong>, ad sumo viris eloquentiam sed. Mea appareat omittantur eloquentiam ad, nam ei quas oportere democritum. Prima causae admodum id est, ei timeam inimicus sed. Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-                                    <p>Cum et probo menandri. Officiis consulatu pro et, ne sea sale invidunt, sed ut sint <strong>blandit</strong> efficiendi. Atomorum explicari eu qui, est enim quaerendum te. Quo harum viris id. Per ne quando dolore evertitur, pro ad cibo commune.</p>
-                                    
+                                    <p>{room.detail_room.description}</p>
                                     <hr/>
+                                    <h2 id="location">Location</h2>
+                                    <p>{room.detail_room.address}</p>
+                                    {/* <div id="map" class="map map_single add_bottom_30"></div> */}
+                                    <hr/>   
                                     
-                                    <section id="available">
-                                        <h3>Available Room</h3>
-                                        <div id="instagram-feed-hotel" class="clearfix"></div>
+                                    <section id="roomtype">
+                                        <h3>Room Type</h3>
                                         <hr/>
-                                        <div class="room_type first">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <img src="assets/img/gallery/hotel_list_1.jpg" class="img-fluid" alt=""/>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <h4>Single Room</h4>
-                                                    <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-                                                    <ul>
-                                                        <li><strong>Room's Size: </strong>88m2</li>
-                                                        <li><strong>Capacity: </strong>30 orang</li>
-                                                    </ul>
-                                                    <p class="price">From <strong>$54</strong> /per hour</p>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                        
-                                        <div class="room_type gray">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <img src="assets/img/gallery/hotel_list_2.jpg" class="img-fluid" alt=""/>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <h4>Double Room</h4>
-                                                    <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-                                                    <ul>
-                                                        <li><strong>Room's Size: </strong>88m2</li>
-                                                        <li><strong>Capacity: </strong>30 orang</li>
-                                                    </ul>
-                                                    <p class="price">From <strong>$54</strong> /per hour</p>
+                                        {room_type.map(item => (
+                                            <div class="room_type first">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <img src={STORAGE_URL + item.layout} class="img-fluid" alt="" width="150" height="150"/>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <h4>{item.name}</h4>
+                                                        <ul>
+                                                            <li><strong>Capacity: </strong>{item.capacity}</li>
+                                                        </ul>
+                                                       
+                                                    </div>
                                                 </div>
                                             </div>
-                                            
-                                        </div>
-                                        
-                                        <div class="room_type last">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <img src="assets/img/gallery/hotel_list_3.jpg" class="img-fluid" alt=""/>
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <h4>Suite Room</h4>
-                                                    <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
-                                                    <ul>
-                                                        <li><strong>Room's Size: </strong>88m2</li>
-                                                        <li><strong>Capacity: </strong>30 orang</li>
-                                                    </ul>
-                                                    <p class="price">From <strong>$54</strong> /per hour</p>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
+                                        ))}
                                     </section>
                                     
                                     <section id="facility">
                                         <hr/>
                                         <h3>Facility</h3>
-                                        <div id="instagram-feed-hotel" class="clearfix"></div>
                                         <hr/>
                                         <div class="row">
                                             <div class="col">
                                                 <ul class="hotel_facilities">
-                                                    <li><img src="assets/img/hotel_facilites_icon_3.svg" alt=""/>King size Bed</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_4.svg" alt=""/>Free Wifi</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_6.svg" alt=""/>Bathtub</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_7.svg" alt=""/>Air Condition</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_9.svg" alt=""/>Swimming pool</li>
-                                                    <li><img src="assets/img/hotel_facilites_icon_3.svg" alt=""/>Hairdryer</li>
+                                                    {facility.map(item => (
+                                                        <li><img src="" alt=""/>{item.name}</li>
+                                                    ))}
                                                 </ul>
                                             </div>
                                         </div>
@@ -163,23 +133,13 @@ function RoomDetail() {
                                     <section id="roomfunction">
                                         <hr/>
                                         <h3>Room Function</h3>
-                                        <div id="instagram-feed-hotel" class="clearfix"></div>
                                         <hr/>
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <ul class="bullets">
-                                                    <li>Dolorem mediocritatem</li>
-                                                    <li>Mea appareat</li>
-                                                    <li>Prima causae</li>
-                                                    <li>Singulis indoctum</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <ul class="bullets">
-                                                    <li>Timeam inimicus</li>
-                                                    <li>Oportere democritum</li>
-                                                    <li>Cetero inermis</li>
-                                                    <li>Pertinacia eum</li>
+                                                    {room_function.map(item => (
+                                                        <li><img src="" alt=""/>{item.name}</li>
+                                                    ))}
                                                 </ul>
                                             </div>
                                         </div>
@@ -187,24 +147,20 @@ function RoomDetail() {
                                     <section id="operationaltimes">
                                         <hr/>
                                         <h3>Operational Times</h3>
-                                        <div id="instagram-feed-hotel" class="clearfix"></div>
+                                        
                                         <hr/>
+                                        
                                         <div class="row">
                                             <div class="col">
                                                 <ul>
-                                                    <li>Monday .................................................................................................................. <em>Pk09:00 - Pk17.00</em></li>
-                                                    <li>Tuesday ................................................................................................................. <em>Pk09:00 - Pk17.00</em></li>
-                                                    <li>Wednesday ........................................................................................................ <em>Pk09:00 - Pk17.00</em></li>
-                                                    <li>Thursday .............................................................................................................. <em>Pk09:00 - Pk17.00</em></li>
-                                                    <li>Friday ..................................................................................................................... <em>Pk09:00 - Pk17.00</em></li>
+                                                
+                                                {operational_times.map(item => (
+                                                    <li>{item.day} .................................................................................................................. <em>Pk{item.open_times} - Pk{item.close_times}</em></li>
+                                                ))}
                                                 </ul>
                                             </div>
                                         </div>
                                     </section>
-                                    
-                                    <hr/>
-                                    <h3>Location</h3>
-                                    <div id="map" class="map map_single add_bottom_30"></div>
                                     
                                 </section>
 

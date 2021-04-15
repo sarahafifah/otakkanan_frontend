@@ -39,7 +39,7 @@ function RoomList() {
             <section class="hero_in hotels">
                 <div class="wrapper">
                     <div class="container">
-                        <h1 class="fadeInUp"><span></span>Paris hotels list</h1>
+                        <h1 class="fadeInUp"><span></span>Room list</h1>
                     </div>
                 </div>
             </section>
@@ -97,11 +97,11 @@ function RoomList() {
 
                                     <h3><Link to={`/roomdetail/${item.id}`}>{item.name}</Link></h3>
                                     <p>{item.description}</p>
-                                    <span class="price">From <strong>$54</strong> /per hour</span>
+                                    {/* <span class="price">From <strong>$54</strong> /per hour</span> */}
 
                                 </div>
                                 <ul>
-                                    <li>Surabaya</li>
+                                    <li>{item.address}</li>
                                     <li></li>
                                     {/* <li>Booking Status: <strong>BOOKED</strong></li> */}
                                 </ul>
