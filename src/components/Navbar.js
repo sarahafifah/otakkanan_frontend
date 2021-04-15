@@ -19,9 +19,9 @@ function Navbar() {
             {/* <div id="preloader"><div data-loader="circle-side"></div></div> */}
             <div id="logo">
             <Link to="/">
-                    <img src="assets/img/logo.svg" width="150" height="36" alt="" class="logo_normal"/>
-                    <img src="assets/img/logo_sticky.svg" width="150" height="36" alt="" class="logo_sticky"/> 
-                </Link>
+                    <img src="assets/img/otakkananlogo.png" width="160" height="50" alt="" class="logo_normal"/>
+                    <img src="assets/img/otakkananlogo.png" width="160" height="50" alt="" class="logo_sticky"/> 
+            </Link>
             </div>
         
             <a href="#menu" class="btn_mobile">

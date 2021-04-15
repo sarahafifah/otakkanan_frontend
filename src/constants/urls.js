@@ -23,4 +23,7 @@ export const GET_HOME = () =>
 export const GET_ROOMS = () => 
     `${BASE_URL}/room/read`;
 
+export const GET_OFFICE_ROOMS = () => 
+    `${BASE_URL}/my-office/read`;
+
 export const CREATE_OFFICE = `${BASE_URL}/my-office/create`;
