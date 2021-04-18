@@ -35,6 +35,7 @@ function CreateNewOffice() {
 
 	const [loading, setLoading] = React.useState(false);
 	const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+	
 
 	const [name, setName] = React.useState("");
 	const [address, setAddress] = React.useState("");
@@ -148,17 +149,25 @@ function CreateNewOffice() {
 
 
 	const[state, setState] = React.useState({
-		selectedFiles: undefined
+		selectedFiles:undefined
 	})
+
 	
+	const[length, setLength] = React.useState();
+	const files = [];
+
 	const handleChangeInput6 = (event) => {
 		let images = [];
 
 		for (let i = 0; i < event.target.files.length; i++) {
 			images.push(URL.createObjectURL(event.target.files[i]))
+			// formData.append('filename['+i+']', event.target.files[i]);
+			files.push(event.target.files[i]);
 		}
+		console.log(files);
+		setLength(event.target.files.length);
 		setState({
-			selectedFile:event.target.files
+			selectedFiles:files
 		});
 	}
 
@@ -178,6 +187,7 @@ function CreateNewOffice() {
 	
 
 	const _onSubmit = () => {
+		
 		setLoading(true);
 		const facility_name = facility.map(
 			x => x.facility_name
@@ -213,7 +223,6 @@ function CreateNewOffice() {
 
 		
 		
-		
 		console.log(name);
 		console.log(address);
 		console.log(latitude);
@@ -228,47 +237,100 @@ function CreateNewOffice() {
 		console.log(regulation_name);
 		console.log(category_price_name);
 		console.log(price);
-		console.log(state.selectedFile);
+		
+		console.log(state.selectedFiles);
+		console.log(length);
 		console.log(layout.file);
 		console.log(JWT_HEADER);
+
 		
 
+		var formData = new FormData();
+		formData.append('name', name);
+		formData.append('address', address);
+		formData.append('description', description);
+		formData.append('latitude', latitude);
+		formData.append('longitude', longitude);
+		formData.append('capacity', capacity);
+		formData.append('room_type_name', room_type_name);
 
-		axios
-			.post("http://localhost:8000/api/coba", {
-				name: name,
-				address: address,
-				description: description,
-				latitude: latitude,
-				longitude: longitude,
-				capacity: capacity,
-				layout: layout.file,
-				room_type_name: room_type_name,
-				room_function_name: function_name,
-				filename: state.selectedFiles,
-				facility_name: facility_name,
-				facility_status: facility_status,
-				regulation_name: regulation_name,
-				day: day,
-				open_times: open_times,
-				close_times: close_times,
-				category_price_name: category_price_name,
-				price: price
-			},{
-				headers: {
-					
-					Authorization: `Bearer ${JWT_HEADER}`,
-					// 'content-type': 'multipart/form-data'
-				}
-			} )
+		
+		
+		for (let index = 0; index < function_name.length; index++) {
+			formData.append('room_function_name[' +index+']', function_name[index]);
+			
+		}
+		// state.selectedFiles.forEach(element => {
+		// 	console.log(element);
+		// });
+		for (let index = 0; index < state.selectedFiles.length; index++) {
+			formData.append('filename['+index+']', state.selectedFiles[index]);
+			
+		}
+
+		for (let index = 0; index < facility_name.length; index++) {
+			formData.append('facility_name[' +index+']', facility_name[index]);
+			
+		}
+
+		for (let index = 0; index < facility_status.length; index++) {
+			formData.append('facility_status[' +index+']', facility_status[index]);
+			
+		}
+
+		for (let index = 0; index < regulation_name.length; index++) {
+			formData.append('regulation_name[' +index+']', regulation_name[index]);
+			
+		}
+
+		for (let index = 0; index < day.length; index++) {
+			formData.append('day[' +index+']', day[index]);
+			
+		}
+
+		for (let index = 0; index < open_times.length; index++) {
+			formData.append('open_times[' +index+']', open_times[index]);
+			
+		}
+
+		for (let index = 0; index < close_times.length; index++) {
+			formData.append('close_times[' +index+']', close_times[index]);
+			
+		}
+
+		for (let index = 0; index < category_price_name.length; index++) {
+			formData.append('category_price_name[' +index+']', category_price_name[index]);
+			
+		}
+
+		for (let index = 0; index < price.length; index++) {
+			formData.append('price[' +index+']', price[index]);
+			
+		}
+		formData.append('layout', layout.file);
+
+		//console.log(formData);
+
+		axios({
+			method: "post",
+			url: "http://localhost:8000/api/my-office/create",
+			data: formData,
+			headers: { 
+				"Content-Type": "multipart/form-data",
+				Authorization: `Bearer ${JWT_HEADER}`
+		
+			},
+		})
 			.then((res) => {
 				console.log(res.data)
+
 			// setIsLoggedIn(true);
 			// setLoading(false);
-			// window.location = "/ownersroom	";
+				window.location = "/ownersroom	";
 			})
 			.catch((err) => {
 				console.log(err.response.data);
+				window.location = "/createoffice";
 				if (err.response.data) {
 					// setErrorName(err.response.data.user?.name ? err.response.data.user.name : "");
 					// setErrorAddress(err.response.data.user?.address ? err.response.data.user.address : "");

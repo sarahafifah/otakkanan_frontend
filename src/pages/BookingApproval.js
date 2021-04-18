@@ -2,92 +2,124 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/NavbarOwner';
 import FooterOwner from '../components/FooterOwner';
+import { JWT_HEADER } from "../constants/urls";
+import axios from "axios";
 
 function BookingApproval() {
+
+    const [pending, setPending] = React.useState({pending_list: []});
+    const [loading, setLoading] = React.useState(false);
+    const [status, setStatus] = React.useState("");
+    const [id, setId] = React.useState("");
+
+    React.useEffect(() => {
+        const fetchData = async () => {
+          
+          axios
+            .get("http://localhost:8000/api/my-booking/owner/booked-room", {
+              headers: { Authorization: `Bearer ${JWT_HEADER}` },
+            })
+            .then((res) => {
+              console.log(res.data);
+              console.log(JWT_HEADER);
+              setPending(res.data);
+            })
+            .catch((err) => {
+              console.log(err);
+              window.location = "/";
+            });
+          
+        };
+        fetchData();
+      }, []);
+
+      const _onSubmit = async (status, id) =>{
+        setLoading(true);
+        setStatus(status);
+        setId(id);
+        console.log(id);
+        console.log(status);
+
+        axios
+            .post("http://localhost:8000/api/my-booking/owner/change-status", {
+                booking_id:id,
+                status:status
+            }, {
+                headers: {
+                    
+                    Authorization: `Bearer ${JWT_HEADER}`
+                }
+            })
+            .then((res) => {
+                setLoading(false);
+                console.log(res.data)
+                console.log(status);
+                window.location = "/bookingapprove";
+            })
+            .catch((err) =>{
+                setLoading(false)
+                console.log(err.response.data)
+            
+            })
+        };
+
     return(           
         <div class="fixed-nav sticky-footer" id="page-top">          
             <Navbar />  
                 <div class="content-wrapper" style={{backgroundColor: '#707070'}}>
                     <div class="container-fluid">             
                     <div class="box_general">
-                        <div class="header_box">
-                            <h2 class="d-inline-block">Bookings list</h2>
-                            <div class="filter">
-                                <select name="orderby" class="selectbox">
-                                    <option value="Any status">Any status</option>
-                                    <option value="Approved">Approved</option>
-                                    <option value="Pending">Pending</option>
-                                    <option value="Cancelled">Cancelled</option>
-                                </select>
-                            </div>
-                        </div>
                         <div class="list_general">
                             <ul>
-                                <li>
-                                    <figure><img src="assets/img/item_1.jpg" alt=""/></figure>
-                                    <h4>Hotel Mariott <i class="pending">Pending</i></h4>
-                                    <ul class="booking_list">
-                                        <li><strong>Booking Date</strong> 11 November 2017</li>
-                                        <li><strong>Starting Time</strong> 9 PM</li>
-                                        <li><strong>Duration</strong> 1h 30min</li>
-                                        <li><strong>Booking details</strong> Suite Room</li>
-                                        <li><strong>Client</strong> Mark Twain</li>
-                                    </ul>
-                                    <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
-                                    <ul class="buttons">
-                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-                                        <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <figure><img src="assets/img/item_2.jpg" alt=""/></figure>
-                                    <h4>Da Alfredo <i class="cancel">Cancelled</i></h4>
-                                    <ul class="booking_list">
-                                        <li><strong>Booking date</strong> 11 November 2017</li>
-                                        <li><strong>Starting Time</strong> 10 AM</li>
-                                        <li><strong>Duration</strong> 30 minute</li>
-                                        <li><strong>Booking details</strong> Single Room</li>
-                                        <li><strong>Client</strong> Mark Twain</li>
-                                    </ul>
-                                    <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
-                                    <ul class="buttons">
-                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-                                        <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <figure><img src="assets/img/item_3.jpg" alt=""/></figure>
-                                    <h4>Pompidue Museum <i class="approved">Approved</i></h4>
-                                    <ul class="booking_list">
-                                        <li><strong>Booking date</strong> 11 November 2017</li>
-                                        <li><strong>Starting Time</strong> 8 PM</li>
-                                        <li><strong>Duration</strong> 2 hour</li>
-                                        <li><strong>Booking details</strong> Double Room</li>
-                                        <li><strong>Client</strong> Mark Twain</li>
-                                    </ul>
-                                    <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
-                                    <ul class="buttons">
-                                        <li><a href="#0" class="btn_1 gray approve"><i class="fa fa-fw fa-check-circle-o"></i> Approve</a></li>
-                                        <li><a href="#0" class="btn_1 gray delete"><i class="fa fa-fw fa-times-circle-o"></i> Cancel</a></li>
-                                    </ul>
-                                </li>
+                                {pending.pending_list.map(item => (
+                                    <li>
+                                        <figure><img src="assets/img/item_1.jpg" alt=""/></figure>
+                                        <h4>{item.room_name} <i class={item.status}>{item.status}</i></h4>
+                                        <ul class="booking_list">
+                                            <li><strong>Booking Date</strong> {item.booking_date}</li>
+                                            <li><strong>Starting Time</strong> {item.starting_time}</li>
+                                            <li><strong>Price Type</strong> {item.price_type}</li>
+                                            <li><strong>Price</strong> {item.unit_price}</li>
+                                            <li><strong>Quantity</strong> {item.quantity}</li>
+                                            <li><strong>Total Price</strong> {item.total_price}</li>
+                                            <li><strong>Address</strong> {item.address} </li>
+                                            <li><strong>Customer</strong> {item.customer}</li>
+                                            <li><strong>Phone</strong> {item.phone_customer}</li>
+                                        </ul>
+                                        <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+                                        <ul class="buttons">
+                                            <li>
+                                                <button  class="btn_1 gray approve"
+                                                    disabled={loading}
+                                                    block
+                                                    onClick={() => _onSubmit("approved", item.booking_id)}
+                                                >
+                                                    <i class="fa fa-fw fa-check-circle-o"></i> Approve
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="btn_1 gray delete"
+                                                    disabled={loading}
+                                                    block
+                                                    onClick={() => _onSubmit("declined", item.booking_id)}
+                                                >
+                                                    <i class="fa fa-fw fa-times-circle-o"></i> Cancel
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                ))}
+                                
+                                
                             </ul>
                         </div>
+                        
+                        
+
                     </div>
             
-                    <nav aria-label="...">
-                        <ul class="pagination pagination-sm add_bottom_30">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    
                 
                 </div>
             

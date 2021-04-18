@@ -2,8 +2,35 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/NavbarUser';
 import FooterOwner from '../components/FooterOwner';
+import { JWT_HEADER } from "../constants/urls";
+import axios from "axios";
 
 function PendingList() {
+
+    const [pending, setPending] = React.useState({pending_list: []});
+
+    React.useEffect(() => {
+        const fetchData = async () => {
+          
+          await axios
+            .get("http://localhost:8000/api/my-booking/user/pending", {
+              headers: { Authorization: `Bearer ${JWT_HEADER}` },
+            })
+            .then((res) => {
+              console.log(res.data);
+              setPending(res.data);
+            })
+            .catch((err) => {
+              console.log(err);
+              window.location = "/";
+            });
+          
+        };
+        fetchData();
+      }, []);
+    
+      
+
     return(           
         <div class="fixed-nav sticky-footer" id="page-top">          
             <Navbar />  
@@ -16,22 +43,31 @@ function PendingList() {
                         </div>
                         <div class="list_general">
                             <ul>
-                                <li>
-                                    <figure><img src="assets/img/item_1.jpg" alt=""/></figure>
-                                    <h4>Hotel Mariott <i class="pending">Pending</i></h4>
-                                    <ul class="booking_list">
-                                        <li><strong>Booking Date</strong> 11 November 2017</li>
-                                        <li><strong>Starting Time</strong> 9 PM</li>
-                                        <li><strong>Duration</strong> 1h 30min</li>
-                                        <li><strong>Booking details</strong> Suite Room</li>
-                                        <li><strong>Owner</strong> Mark Twain</li>
-                                    </ul>
-                                    <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
-                                    
-                                </li>
+                                {pending.pending_list.map(item => (
+                                    <li>
+                                        <figure><img src="assets/img/item_1.jpg" alt=""/></figure>
+                                        <h4>{item.room_name} <i class={item.status}>{item.status}</i></h4>
+                                        <ul class="booking_list">
+                                            <li><strong>Booking Date</strong> {item.booking_date}</li>
+                                            <li><strong>Starting Time</strong> {item.starting_time}</li>
+                                            <li><strong>Price Type</strong> {item.price_type}</li>
+                                            <li><strong>Price</strong> {item.unit_price}</li>
+                                            <li><strong>Quantity</strong> {item.quantity}</li>
+                                            <li><strong>Total Price</strong> {item.total_price}</li>
+                                            <li><strong>Address</strong> {item.address} </li>
+                                            <li><strong>Owner</strong> {item.owner}</li>
+                                            <li><strong>Phone</strong> {item.phone_owner}</li>
+                                        </ul>
+                                        <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
+                                        
+                                    </li>
+
+                                ))}
+                                
                                 
                             </ul>
                         </div>
+                        
                     </div>
                 
                 </div>

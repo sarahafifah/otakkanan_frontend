@@ -41,7 +41,12 @@ function Navbar() {
             </a>
             <nav id="menu" class="main-menu" >
                 <ul>
-                    <li><span><Link to="/bookingapprove">Booking Approval</Link></span></li>
+                    <li><span><Link to="/bookingapprove">Booking Approval</Link></span>
+                      <ul>
+                          <li><Link to="/approvedroom">Approved List</Link></li>
+                          <li><Link to="/declinedroom">Declined List</Link></li>
+                      </ul>
+                    </li>
                     <li><span><Link>Owner</Link></span>
                         <ul>
                           <li><Link to="/ownersroom">My Office</Link></li>

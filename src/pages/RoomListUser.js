@@ -39,7 +39,7 @@ function RoomListUser() {
             <section class="hero_in hotels">
                 <div class="wrapper">
                     <div class="container">
-                        <h1 class="fadeInUp"><span></span>Paris hotels list</h1>
+                        <h1 class="fadeInUp"><span></span>Room list</h1>
                     </div>
                 </div>
             </section>
@@ -79,14 +79,17 @@ function RoomListUser() {
            
     
             <div class="container margin_60_35">
-                {list.rooms.map(item => (
+            {list.rooms.map(item => (
                     <div class="box_list">
                         <div class="row no-gutters">
                             <div class="col-lg-5">
                                 <figure>
 
                                     <small>{item.name}</small>
-                                    <Link to={`/roomdetail/${item.id}`}><img src={STORAGE_URL + item.filename} class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
+                                    <Link to={{
+                                        pathname: "/roomdetail",
+                                        state: item.id // your data array of objects
+                                    }}><img src={STORAGE_URL + item.filename} class="img-fluid" alt="" width="800" height="533"/><div class="read_more"><span>Read more</span></div></Link>
 
                                 </figure>
                             </div>
@@ -95,13 +98,17 @@ function RoomListUser() {
                                     <a href="#0" class="wish_bt"></a>
                                     &nbsp;
 
-                                    <h3><Link to={`/roomdetail/${item.id}`}>{item.name}</Link></h3>
+                                    <h3><Link to={{
+                                        pathname: "/roomdetail",
+                                        state: item.id // your data array of objects
+                                    }}>
+                                        {item.name}</Link></h3>
                                     <p>{item.description}</p>
-                                    <span class="price">From <strong>$54</strong> /per hour</span>
+                                    {/* <span class="price">From <strong>$54</strong> /per hour</span> */}
 
                                 </div>
                                 <ul>
-                                    <li>Surabaya</li>
+                                    <li>{item.address}</li>
                                     <li></li>
                                     {/* <li>Booking Status: <strong>BOOKED</strong></li> */}
                                 </ul>

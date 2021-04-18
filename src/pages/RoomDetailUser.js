@@ -1,33 +1,24 @@
 import React, { useEffect } from 'react';
-import Navbar from '../components/Navbar'
+//import Navbar from '../components/Navbar'
 import ReactDOM from "react-dom";
 import Footer from '../components/Footer'
-import Carousel from 'react-elastic-carousel';
-
-import { GET_DETAIL_ROOM, JWT_HEADER, STORAGE_URL } from '../constants/urls'
+import { useParams } from "react-router";
+import { GET_DETAIL_ROOM, JWT_HEADER } from '../constants/urls'
 import {
     BrowserRouter as Router,
     Switch,
-    useLocation,
-    Link
+    useLocation
   } from "react-router-dom";
 import axios from 'axios';
 
-function RoomDetail() {    
+function RoomDetailUser() {    
     const [room, setRoomDetail] = React.useState({detail_room: {}});
-    const [room_type, setRoomType] = React.useState([]);
-    const [facility, setFacility] = React.useState([]);
-    const [gallery, setGallery] = React.useState([]);
-    const [room_function, setRoomFunction] = React.useState([]);
-    const [operational_times, setOperationalTimes] = React.useState([]);
-    const [isLoading, setIsLoading] = React.useState(true);
-
     const [category_price, setCategoryPrice] = React.useState([]);
     const [booking_date, setBookingDate] = React.useState("");
     const [quantity, setQuantity] = React.useState("");
     const [start_time, setStartTime] = React.useState("");
     const [price, setPrice] = React.useState("");
-    const [loading, setLoading] = React.useState(false);
+    const [isLoading, setIsLoading] = React.useState(true);
     
     let location = useLocation();
     console.log(location.state);
@@ -35,48 +26,24 @@ function RoomDetail() {
     const room_id = location.state;
     console.log(room_id);
 
-    useEffect(() => {
+    
 
+    useEffect(() => {
+        
         fetchData(room_id);
-  
+        
     }, []);
 
-    const fetchData = async (room_id) => {
-        setIsLoading(true);
-        await axios
-          .get(GET_DETAIL_ROOM(room_id), {
-            headers: {},
-          })
-          .then((res) => {
-            console.log(res.data);
-            setRoomDetail(res.data);
-            setRoomType(res.data.detail_room.room_type);
-            setFacility(res.data.detail_room.facility);
-            setGallery(res.data.detail_room.gallery);
-            setRoomFunction(res.data.detail_room.room_function);
-            setOperationalTimes(res.data.detail_room.operational_times);
-            setCategoryPrice(res.data.detail_room.category_price);
-            console.log(category_price);
-            
-          })
-          .catch((err) => {
-            console.log(err);
-            window.location = "/roomlist";
-          });
-        setIsLoading(false);
-      };
-
-      const _onSubmit = () =>{
-        setLoading(true);
-        console.log(room.detail_room.id);
+    const _onSubmit = async () =>{
+        console.log(room_id);
         console.log(price);
         console.log(booking_date);
         console.log(start_time);
         console.log(quantity);
 
-      axios
+    await axios
         .post("http://localhost:8000/api/my-booking/user/create", {
-            room_id:room.detail_room.id,
+            room_id:room_id,
             category_price_id:price,
             starting_date:booking_date,
             starting_time:start_time,
@@ -88,39 +55,48 @@ function RoomDetail() {
             }
         })
         .then((res) => {
-            setLoading(false);
             console.log(res.data)
-            window.location = "/pendinglist";
         })
         .catch((err) =>{
-            setLoading(false)
-            console.log(err.response.data)
-           
+            window.location = "/";
         })
     };
+    const fetchData = async (room_id) => {
+        setIsLoading(true);
+        axios
+          .get(GET_DETAIL_ROOM(room_id), {
+            headers: {},
+          })
+          .then((res) => {
+            setRoomDetail(res.data);
+            console.log(res.data);
+            setCategoryPrice(res.data.detail_room.category_price);
+            console.log(category_price);
+          })
+          .catch((err) => {
+            console.log(err);
+            window.location = "/roomlist";
+          });
+        setIsLoading(false);
+      };
 
     return(
         
     <div class="datepicker_mobile_full">
         
         <div id="page" class="theia-exception">
-            {/* <Navbar />   */}
+            
             <div>
                 <section class="hero_in hotels_detail">
                     <div class="wrapper">
                         <div class="container">
                             <h1 class="fadeInUp"><span></span>{room.detail_room.name}</h1>
                         </div>
-                        {/* <span class="magnific-gallery"> */}
-                            <div>
-                        <Carousel>
-                            {gallery.map(item => (
-                                <img src={STORAGE_URL + item.filename}  width="1600px" height="1067"></img>
-                            ))}
-                        </Carousel>
-                        </div>
-                            
-                        {/* </span> */}
+                        <span class="magnific-gallery">
+                            <a href="img/gallery/hotel_list_1.jpg" class="btn_photos" title="Photo title" data-effect="mfp-zoom-in">View photos</a>
+                            <a href="img/gallery/hotel_list_2.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
+                            <a href="img/gallery/hotel_list_3.jpg" title="Photo title" data-effect="mfp-zoom-in"></a>
+                        </span>
                     </div>
                 </section>
                 
@@ -130,8 +106,7 @@ function RoomDetail() {
                         <div class="container">
                             <ul class="clearfix">
                                 <li><a href="#description" class="active">Description</a></li>
-                                <li><a href="#location" >Locations</a></li>
-                                <li><a href="#roomtype">RoomType</a></li>
+                                <li><a href="#available">Available</a></li>
                                 <li><a href="#facility">Facility</a></li>
                                 <li><a href="#roomfunction">Function</a></li>
                                 <li><a href="#operationaltimes">Operational</a></li>
@@ -144,53 +119,85 @@ function RoomDetail() {
                         <div class="row">
                             <div class="col-lg-8">
                                 <section id="description">
-                                    <h2>{room.detail_room.name}</h2>
-                                    <hr/>       
                                     <h2>Description</h2>
+                                    <p>{room.detail_room.description} <strong>temporibus vim</strong>, ad sumo viris eloquentiam sed. Mea appareat omittantur eloquentiam ad, nam ei quas oportere democritum. Prima causae admodum id est, ei timeam inimicus sed. Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
+                                    <p>Cum et probo menandri. Officiis consulatu pro et, ne sea sale invidunt, sed ut sint <strong>blandit</strong> efficiendi. Atomorum explicari eu qui, est enim quaerendum te. Quo harum viris id. Per ne quando dolore evertitur, pro ad cibo commune.</p>
+                                    
                                     <hr/>
-                                    <p>{room.detail_room.description}</p>
                                     
-                                    <section id="location">
-                                        <hr/> 
-                                            <h2 >Location</h2>
-                                        <hr/> 
-                                        <p>{room.detail_room.address}</p>
-                                        {/* <div id="map" class="map map_single add_bottom_30"></div> */}
-                                      
-                                    </section>
-                                    
-                                    <section id="roomtype">
-                                        <hr/> 
-                                            <h3>Room Type</h3>
+                                    <section id="available">
+                                        <h3>Available Room</h3>
+                                        <div id="instagram-feed-hotel" class="clearfix"></div>
                                         <hr/>
-                                        {room_type.map(item => (
-                                            <div class="room_type first">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <img src={STORAGE_URL + item.layout} class="img-fluid" alt="" width="150" height="150"/>
-                                                    </div>
-                                                    <div class="col-md-8">
-                                                        <h4>{item.name}</h4>
-                                                        <ul>
-                                                            <li><strong>Capacity: </strong>{item.capacity}</li>
-                                                        </ul>
-                                                       
-                                                    </div>
+                                        <div class="room_type first">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img src="assets/img/gallery/hotel_list_1.jpg" class="img-fluid" alt=""/>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h4>Single Room</h4>
+                                                    <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
+                                                    <ul>
+                                                        <li><strong>Room's Size: </strong>88m2</li>
+                                                        <li><strong>Capacity: </strong>30 orang</li>
+                                                    </ul>
+                                                    <p class="price">From <strong>$54</strong> /per hour</p>
                                                 </div>
                                             </div>
-                                        ))}
+                                            
+                                        </div>
+                                        
+                                        <div class="room_type gray">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img src="assets/img/gallery/hotel_list_2.jpg" class="img-fluid" alt=""/>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h4>Double Room</h4>
+                                                    <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
+                                                    <ul>
+                                                        <li><strong>Room's Size: </strong>88m2</li>
+                                                        <li><strong>Capacity: </strong>30 orang</li>
+                                                    </ul>
+                                                    <p class="price">From <strong>$54</strong> /per hour</p>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                        <div class="room_type last">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <img src="assets/img/gallery/hotel_list_3.jpg" class="img-fluid" alt=""/>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <h4>Suite Room</h4>
+                                                    <p>Sit an meis aliquam, cetero inermis vel ut. An sit illum euismod facilisis, tamquam vulputate pertinacia eum at.</p>
+                                                    <ul>
+                                                        <li><strong>Room's Size: </strong>88m2</li>
+                                                        <li><strong>Capacity: </strong>30 orang</li>
+                                                    </ul>
+                                                    <p class="price">From <strong>$54</strong> /per hour</p>
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
                                     </section>
                                     
                                     <section id="facility">
                                         <hr/>
                                         <h3>Facility</h3>
+                                        <div id="instagram-feed-hotel" class="clearfix"></div>
                                         <hr/>
                                         <div class="row">
                                             <div class="col">
                                                 <ul class="hotel_facilities">
-                                                    {facility.map(item => (
-                                                        <li><img src="" alt=""/>{item.name}</li>
-                                                    ))}
+                                                    <li><img src="assets/img/hotel_facilites_icon_3.svg" alt=""/>King size Bed</li>
+                                                    <li><img src="assets/img/hotel_facilites_icon_4.svg" alt=""/>Free Wifi</li>
+                                                    <li><img src="assets/img/hotel_facilites_icon_6.svg" alt=""/>Bathtub</li>
+                                                    <li><img src="assets/img/hotel_facilites_icon_7.svg" alt=""/>Air Condition</li>
+                                                    <li><img src="assets/img/hotel_facilites_icon_9.svg" alt=""/>Swimming pool</li>
+                                                    <li><img src="assets/img/hotel_facilites_icon_3.svg" alt=""/>Hairdryer</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -198,13 +205,23 @@ function RoomDetail() {
                                     <section id="roomfunction">
                                         <hr/>
                                         <h3>Room Function</h3>
+                                        <div id="instagram-feed-hotel" class="clearfix"></div>
                                         <hr/>
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <ul class="bullets">
-                                                    {room_function.map(item => (
-                                                        <li><img src="" alt=""/>{item.name}</li>
-                                                    ))}
+                                                    <li>Dolorem mediocritatem</li>
+                                                    <li>Mea appareat</li>
+                                                    <li>Prima causae</li>
+                                                    <li>Singulis indoctum</li>
+                                                </ul>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <ul class="bullets">
+                                                    <li>Timeam inimicus</li>
+                                                    <li>Oportere democritum</li>
+                                                    <li>Cetero inermis</li>
+                                                    <li>Pertinacia eum</li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -212,20 +229,24 @@ function RoomDetail() {
                                     <section id="operationaltimes">
                                         <hr/>
                                         <h3>Operational Times</h3>
-                                        
+                                        <div id="instagram-feed-hotel" class="clearfix"></div>
                                         <hr/>
-                                        
                                         <div class="row">
                                             <div class="col">
                                                 <ul>
-                                                
-                                                {operational_times.map(item => (
-                                                    <li>{item.day} .................................................................................................................. <em>Pk{item.open_times} - Pk{item.close_times}</em></li>
-                                                ))}
+                                                    <li>Monday .................................................................................................................. <em>Pk09:00 - Pk17.00</em></li>
+                                                    <li>Tuesday ................................................................................................................. <em>Pk09:00 - Pk17.00</em></li>
+                                                    <li>Wednesday ........................................................................................................ <em>Pk09:00 - Pk17.00</em></li>
+                                                    <li>Thursday .............................................................................................................. <em>Pk09:00 - Pk17.00</em></li>
+                                                    <li>Friday ..................................................................................................................... <em>Pk09:00 - Pk17.00</em></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </section>
+                                    
+                                    <hr/>
+                                    <h3>Location</h3>
+                                    <div id="map" class="map map_single add_bottom_30"></div>
                                     
                                 </section>
 
@@ -281,11 +302,11 @@ function RoomDetail() {
                                     <div class="form-group">
                                         <label>Price</label>
                                         <select class="form-control"
-                                        value={price}
-                                        onChange={(e) => {
-                                            setPrice(e.target.value);
-                                        }}>
-                                            <option>== Select Price ==</option>
+                                         value={price}
+                                         onChange={(e) => {
+                                             setPrice(e.target.value);
+                                         }}>
+                                             <option>== Select Price ==</option>
                                             {category_price.map(item => (
                                                 <option 
                                                     value={item.id}
@@ -297,21 +318,19 @@ function RoomDetail() {
                                         </select>
                                     </div>
 
-
-
+                                    
+                                    
                                         
                                     <button
                                         className="btn_1 rounded full-width add_top_30"
                                         variant="primary"
-                                        disabled={loading}
-                                        block
                                         onClick={_onSubmit}>Purchase
                                     </button>
                                     <div class="text-center"><small>No money charged in this step</small></div>
+                                
+                               
 
-
-
-                                    </form>
+                                </form> 
                             </aside>
 
                             
@@ -382,5 +401,5 @@ function RoomDetail() {
     );
 }
                         
-export default RoomDetail;
+export default RoomDetailUser;
             

@@ -1,23 +1,25 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/NavbarUser';
+import Navbar from '../components/NavbarOwner';
 import FooterOwner from '../components/FooterOwner';
 import { JWT_HEADER } from "../constants/urls";
 import axios from "axios";
 
-function DeclinedList() {
-    const [declined, setDeclined] = React.useState({declined_list: []});
+function ApprovedRoom() {
+
+    const [pending, setPending] = React.useState({approved_list: []});
 
     React.useEffect(() => {
         const fetchData = async () => {
           
           await axios
-            .get("http://localhost:8000/api/my-booking/user/declined", {
+            .get("http://localhost:8000/api/my-booking/owner/approved-room", {
               headers: { Authorization: `Bearer ${JWT_HEADER}` },
             })
             .then((res) => {
               console.log(res.data);
-              setDeclined(res.data);
+              console.log(JWT_HEADER);
+              setPending(res.data);
             })
             .catch((err) => {
               console.log(err);
@@ -27,8 +29,6 @@ function DeclinedList() {
         };
         fetchData();
       }, []);
-    
-      
 
     return(           
         <div class="fixed-nav sticky-footer" id="page-top">          
@@ -36,16 +36,12 @@ function DeclinedList() {
                 <div class="content-wrapper" style={{backgroundColor: '#707070'}}>
                     <div class="container-fluid">             
                     <div class="box_general">
-                        <div class="header_box">
-                            <h2 class="d-inline-block">Bookings list</h2>
-                            
-                        </div>
                         <div class="list_general">
                             <ul>
-                                {declined.declined_list.map(item => (
+                                {pending.approved_list.map(item => (
                                     <li>
                                         <figure><img src="assets/img/item_1.jpg" alt=""/></figure>
-                                        <h4>{item.room_name} <i class="cancel">{item.status}</i></h4>
+                                        <h4>{item.room_name} <i class={item.status}>{item.status}</i></h4>
                                         <ul class="booking_list">
                                             <li><strong>Booking Date</strong> {item.booking_date}</li>
                                             <li><strong>Starting Time</strong> {item.starting_time}</li>
@@ -54,8 +50,8 @@ function DeclinedList() {
                                             <li><strong>Quantity</strong> {item.quantity}</li>
                                             <li><strong>Total Price</strong> {item.total_price}</li>
                                             <li><strong>Address</strong> {item.address} </li>
-                                            <li><strong>Owner</strong> {item.owner}</li>
-                                            <li><strong>Phone</strong> {item.phone_owner}</li>
+                                            <li><strong>Customer</strong> {item.customer}</li>
+                                            <li><strong>Phone</strong> {item.phone_customer}</li>
                                         </ul>
                                         <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
                                         
@@ -66,7 +62,12 @@ function DeclinedList() {
                                 
                             </ul>
                         </div>
+                        
+                        
+
                     </div>
+            
+                    
                 
                 </div>
             
@@ -101,4 +102,4 @@ function DeclinedList() {
     );
 }
     
-export default DeclinedList;
+export default ApprovedRoom;

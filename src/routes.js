@@ -9,6 +9,8 @@ import MyBooking from './pages/MyBooking';
 import PendingList from './pages/PendingList';
 import ApprovedList from './pages/ApprovedList';
 import DeclinedList from './pages/DeclinedList';
+import DeclinedRoom from './pages/DeclinedRoom';
+import ApprovedRoom from './pages/ApprovedRoom';
 import RoomDetail from './pages/RoomDetail';
 import RoomList from './pages/RoomList';
 import RoomListUser from './pages/RoomListUser';
@@ -17,7 +19,7 @@ import Register from './pages/Register';
 import BookingApproval from './pages/BookingApproval';
 import CreateNewOffice from './pages/CreateNewOffice';
 import RoomListOwner from './pages/RoomListOwner';
-
+import Invoice from './pages/Invoice';
 import CobaDetail from './pages/CobaDetail';
 import Coba from './pages/Coba';
 
@@ -26,7 +28,7 @@ function routes() {
         <Router>
             <Switch>
                 <Route path='/' exact component={Dashboard}/>
-                
+                <Route path='/invoice' exact component={Invoice}/>
                 <Route path='/user' exact component={DashboardUser}/>
                 <Route path='/roomlistuser' component={RoomListUser}/>
                 <Route path='/about' component={About}/>
@@ -36,11 +38,13 @@ function routes() {
                 <Route path='/pendinglist' component={PendingList}/>
                 <Route path='/approvedlist' component={ApprovedList}/>
                 <Route path='/declinedlist' component={DeclinedList}/>
-                <Route path='/roomdetail/:room_id' component={RoomDetail}/>
+                <Route path='/roomdetail' component={RoomDetail}/>
                 <Route path='/roomlist' component={RoomList}/>
                 <Route path='/login' component={Login}/>
                 <Route path='/register' component={Register}/>
                 <Route path='/bookingapprove' component={BookingApproval}/>
+                <Route path='/approvedroom' component={ApprovedRoom}/>
+                <Route path='/declinedroom' component={DeclinedRoom}/>
                 <Route path='/createoffice' component={CreateNewOffice}/>
                 <Route path='/ownersroom' component={RoomListOwner}/>
                 <Route path='/sign-in' exact component={Login}/>

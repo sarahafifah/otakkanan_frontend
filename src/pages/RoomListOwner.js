@@ -54,9 +54,15 @@ function RoomListOwner() {
                         <div class="box_grid">
                             <figure>
                                 <a href="#0" class="wish_bt liked"></a>
-                                <Link to={`/roomdetail/${item.id}`}><img src={STORAGE_URL + item.filename} class="img-fluid" alt="" width="800" height="533"/></Link>
+                                <Link to={{
+                                        pathname: "/roomdetail",
+                                        state: item.id // your data array of objects
+                                    }}><img src={STORAGE_URL + item.filename} class="img-fluid" alt="" width="800" height="533"/></Link>
                                 <small>{item.name}</small>
-                                <div class="read_more"><Link to={`/roomdetail/${item.id}`}><span>Read more</span></Link></div>
+                                <div class="read_more"><Link to={{
+                                        pathname: "/roomdetail",
+                                        state: item.id // your data array of objects
+                                    }}><span>Read more</span></Link></div>
                             </figure>
                             <div class="wrapper">
                                 <h3><a href="tour-detail.html">{item.name}</a></h3>
@@ -122,7 +128,7 @@ function RoomListOwner() {
 
 	
 
-	<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
+	{/* <div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
 		<div class="small-dialog-header">
 			<h3>Sign In</h3>
 		</div>
@@ -166,7 +172,7 @@ function RoomListOwner() {
 			</div>
 		</form>
 	
-	</div>
+	</div> */}
 	
 	
 	<div id="toTop"></div>

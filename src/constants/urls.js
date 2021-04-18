@@ -14,6 +14,9 @@ export const JWT_HEADER = JWT;
 export const LOGIN_API = `${BASE_URL}/login`;
 export const REGISTER_API = `${BASE_URL}/register`;
 
+export const GET_INVOICE = (bookingId) =>
+    `${BASE_URL}/my-booking/user/invoice/${bookingId}`;
+
 export const GET_DETAIL_ROOM = (roomId) =>
     `${BASE_URL}/room/show/${roomId}`;
 

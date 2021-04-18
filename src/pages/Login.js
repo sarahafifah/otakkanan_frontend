@@ -48,7 +48,7 @@ function Login() {
 			if (res.data.user.role == "user")
            		window.location = "/user";
 			else if(res.data.user.role == "owner")
-				window.location = "/createoffice";
+				window.location = "/ownersroom";
           } else {
             setErrorEmail("You're not and Owner or User");
           }
