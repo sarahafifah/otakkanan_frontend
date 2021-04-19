@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,  useHistory } from 'react-router-dom';
+import { logout } from "../utils/auth";
+
 
 function Navbar() {
 
@@ -13,14 +15,20 @@ function Navbar() {
     }
   }, []);
 
+  const history = useHistory();
+  const onLogout = () => {
+    logout();
+    history.replace("/sign-in");
+  };
+
   return (
     <>
       <header class="header menu_fixed">
             {/* <div id="preloader"><div data-loader="circle-side"></div></div> */}
             <div id="logo">
-            <Link to="/">
-                    <img src="assets/img/otakkananlogo.png" width="160" height="50" alt="" class="logo_normal"/>
-                    <img src="assets/img/otakkananlogo.png" width="160" height="50" alt="" class="logo_sticky"/> 
+            <Link to="/ownersroom">
+                  <img src="assets/img/otakkananlogo.png" width="160" height="50" alt="" class="logo_normal"/>
+                  <img src="assets/img/otakkananlogo.png" width="160" height="50" alt="" class="logo_sticky"/> 
             </Link>
             </div>
         
@@ -33,11 +41,22 @@ function Navbar() {
             </a>
             <nav id="menu" class="main-menu" >
                 <ul>
-                    <li><span><Link to="/">Home</Link></span></li>
-                    <li><span><Link to="/roomlist">Room</Link></span></li>
-                    <li><span><Link to="/about">About</Link></span></li>
-                    <li><span><Link to="/login">Login</Link></span></li>
-                    <li><span><Link to="/register">Register</Link></span></li>
+                    <li><span><Link to="/bookingapprove">Booking Approval</Link></span>
+                      <ul>
+                          <li><Link to="/approvedroom">Approved List</Link></li>
+                          <li><Link to="/declinedroom">Declined List</Link></li>
+                      </ul>
+                    </li>
+                    <li><span><Link>Owner</Link></span>
+                        <ul>
+                          <li><Link to="/ownersroom">My Office</Link></li>
+                          <li><Link to="/createoffice">Create Office</Link></li>
+                          <li><Link to="/ownersroom">My Profile</Link></li>
+                          <li><Link to="/" onClick={onLogout}>Logout</Link></li>
+                        </ul>
+                    </li>
+                    <li><span><Link to="/aboutowner">About</Link></span></li>
+                    
                     
                 </ul>
             </nav>

@@ -1,8 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import { GET_HOME, STORAGE_URL } from '../constants/urls';
+import { GET_HOME,JWT_HEADER, STORAGE_URL } from '../constants/urls';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/NavbarUser';
 import Footer from '../components/Footer';
 
 function Dashboard() {
@@ -15,7 +15,7 @@ function Dashboard() {
         setIsLoading(true);
         await axios
           .get(GET_HOME(), {
-            headers: {},
+            headers: { Authorization: `Bearer ${JWT_HEADER}` },
           })
           .then((res) => {
             console.log(res.data);

@@ -1140,7 +1140,7 @@ header.sticky .hamburger-inner, header.sticky .hamburger-inner::before, header.s
   background-color: rgba(0, 0, 0, 0.6);
 }
 .hero_in.hotels:before {
-  background: url(../img/hero_in_bg_4.jpg) center center no-repeat;
+  background: url(../img/home_section_1.jpg) center center no-repeat;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1679,7 +1679,7 @@ ul#additional_links li:after {
 
 .flexslider .slides > li {
   display: none;
-  -webkit-backface-visibility: hidden;
+  --webkit-backface-visibility: hidden;
 }
 
 .flexslider .slides img {
@@ -1722,7 +1722,7 @@ html[xmlns] .flexslider .slides {
 
 .flexslider .slides img {
   height: auto;
-  -moz-user-select: none;
+  --moz-user-select: none;
 }
 
 .flex-viewport {
@@ -2099,7 +2099,7 @@ html[xmlns] .flexslider .slides {
   transform: translate(0, 10px);
 }
 #carousel_slider.flexslider ul.slides li .caption small strong {
-  float: right;
+  --float: right;
   display: inline-block;
   text-align: right;
   margin: 0 40px 0 0;
@@ -3857,7 +3857,7 @@ a.box_feat h3 {
   color: rgba(0, 0, 0, 0.9);
 }
 .switch-field label {
-  float: left;
+  --float: left;
   display: inline-block;
   min-width: 70px;
   color: rgba(0, 0, 0, 0.5);
@@ -4022,7 +4022,7 @@ a.boxed_list:hover i {
 @media (max-width: 575px) {
   .secondary_nav ul li:last-child {
     display: inline-block;
-    float: right;
+    --float: right;
     margin-right: 0;
   }
 }
@@ -4555,7 +4555,7 @@ ul.hotel_facilities li img {
 
 /*-------- 2.5 Login/register --------*/
 #login_bg, #register_bg {
-  background: url(../img/hero_in_bg_3.jpg) center center no-repeat fixed;
+  background: url(../img/home_section_1.jpg) center center no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -4565,7 +4565,7 @@ ul.hotel_facilities li img {
 }
 
 #register_bg {
-  background: url(../img/hero_in_bg_2.jpg) center center no-repeat fixed;
+  background: url(../img/home_section_1.jpg) center center no-repeat fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -4831,14 +4831,6 @@ a.social_bt.linkedin:before {
   cursor: pointer;
 }
 
-@-webkit-keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 .marker_info {
   width: 240px;
   height: 270px;
@@ -4967,7 +4959,7 @@ a.btn_infobox_phone:before {
 span.infobox_rate {
   display: inline-block;
   margin: -44px 0 0 -20px;
-  float: left;
+  --float: left;
   background-color: #0054a6;
   padding: 5px 8px;
   font-weight: 500;
@@ -5510,7 +5502,7 @@ ul.cart_details li span {
 }
 #confirm p {
   font-size: 16px !important;
-  font-size: 16px !important/16pxrem;
+  font-size: 16px !important;
   margin-bottom: 0;
 }
 
@@ -6879,7 +6871,7 @@ a.address:hover {
 
 /* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */
 .leaflet-overlay-pane svg {
-  -moz-user-select: none;
+  --moz-user-select: none;
 }
 
 .leaflet-tile-pane {
@@ -7473,7 +7465,7 @@ a.address:hover {
 .leaflet-popup-content span.infobox_rate {
   display: inline-block;
   margin: -39px 0 0 -20px;
-  float: left;
+  --float: left;
   background-color: #0054a6;
   padding: 5px 8px;
   font-weight: 500;
@@ -7796,9 +7788,9 @@ ul.share-buttons li i {
   height: 6px;
   border: 4px solid transparent;
   background-clip: padding-box;
-  -webkit-border-radius: 7px;
+  --webkit-border-radius: 7px;
   background-color: rgba(0, 0, 0, 0.15);
-  -webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
+  --webkit-box-shadow: inset -1px -1px 0px rgba(0, 0, 0, 0.05), inset 1px 1px 0px rgba(0, 0, 0, 0.05);
 }
 .nice-select .list::-webkit-scrollbar-button {
   width: 0;
@@ -8566,7 +8558,7 @@ a#forgot {
   user-select: none;
   box-sizing: content-box;
   background-clip: content-box;
-  float: right;
+  --float: right;
 }
 .switchery > small {
   background: #fff;

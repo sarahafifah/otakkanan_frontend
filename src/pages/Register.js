@@ -63,17 +63,17 @@ function Register() {
 		email: email,
 		password: password,
 		password_confirmation: passwordConfirmation,
-		role: "user",
+		role: role,
 		})
 		.then((res) => {
-		setUserLogin({
-			token: res.data.token,
-			user: res.data.user,
-			status: res.data.status
-		});
+		// setUserLogin({
+		// 	token: res.data.token,
+		// 	user: res.data.user,
+		// 	status: res.data.status
+		// });
 		setIsLoggedIn(true);
 		setLoading(false);
-		window.location = "/";
+		window.location = "/sign-in";
 		})
 		.catch((err) => {
 		console.log(err.response.data);
@@ -113,7 +113,7 @@ function Register() {
       <div id="login">
         <aside>
           <figure>
-            <a href="index.html"><img src="assets/img/logo_sticky.png" width="155" height="36" data-retina="true" alt="" class="logo_sticky"/></a>
+            <a href="index.html"><img src="assets/img/otakkananlogo.png" width="160" height="50" data-retina="true" alt="" class="logo_sticky"/></a>
           </figure>
           <form onClick={_onSubmit} >
             <div class="form-group">
@@ -283,7 +283,7 @@ function Register() {
             <div class="text-center add_top_10">Already have an acccount? <strong><Link to="/sign-in">Sign In</Link></strong></div>
           
           </form>
-          <div class="copy">© 2018 Panagea</div>
+          <div class="copy">© 2021 Otak Kanan Office</div>
         </aside>
       </div>
     </div>

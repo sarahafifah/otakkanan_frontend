@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/NavbarUser';
 import Footer from '../components/Footer';
 import axios from 'axios';
 import { GET_ROOMS, STORAGE_URL } from '../constants/urls';
 
-function RoomList() {
+function RoomListUser() {
 
 
     const [list, setRooms] = React.useState({rooms: []});
@@ -79,7 +79,7 @@ function RoomList() {
            
     
             <div class="container margin_60_35">
-                {list.rooms.map(item => (
+            {list.rooms.map(item => (
                     <div class="box_list">
                         <div class="row no-gutters">
                             <div class="col-lg-5">
@@ -212,4 +212,4 @@ function RoomList() {
 }
     
     
-export default RoomList;
+export default RoomListUser;

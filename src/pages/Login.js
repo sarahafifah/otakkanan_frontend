@@ -48,7 +48,7 @@ function Login() {
 			if (res.data.user.role == "user")
            		window.location = "/user";
 			else if(res.data.user.role == "owner")
-				window.location = "/";
+				window.location = "/ownersroom";
           } else {
             setErrorEmail("You're not and Owner or User");
           }
@@ -91,7 +91,7 @@ function Login() {
 			<div id="login">
 				<aside>
 					<figure>
-						<a href="index.html"><img src="assets/img/logo_sticky.png" width="155" height="36" data-retina="true" alt="" class="logo_sticky"/></a>
+						<a href="index.html"><img src="assets/img/otakkananlogo.png" width="160" height="50" data-retina="true" alt="" class="logo_sticky"/></a>
 					</figure>
 					<form>
 						<div class="access_social">
@@ -164,11 +164,11 @@ function Login() {
 							block
 							onClick={_onSubmit}
 						>
-							Login to Panagea
+							Login
 						</button>
-						<div class="text-center add_top_10">New to Panagea? <strong><a href="register.html">Sign up!</a></strong></div>
+						<div class="text-center add_top_10">New to Otak Kanan Office	? <strong><a href="/sign-up">Sign up!</a></strong></div>
 					</form>
-					<div class="copy">© 2018 Panagea</div>
+					<div class="copy">© 2021 Otak Kanan Office</div>
 				</aside>
 			</div>
 			

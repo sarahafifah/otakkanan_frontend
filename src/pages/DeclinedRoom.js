@@ -5,18 +5,15 @@ import FooterOwner from '../components/FooterOwner';
 import { JWT_HEADER } from "../constants/urls";
 import axios from "axios";
 
-function BookingApproval() {
+function DeclinedRoom() {
 
-    const [pending, setPending] = React.useState({pending_list: []});
-    const [loading, setLoading] = React.useState(false);
-    const [status, setStatus] = React.useState("");
-    const [id, setId] = React.useState("");
+    const [pending, setPending] = React.useState({declined_list: []});
 
     React.useEffect(() => {
         const fetchData = async () => {
           
-          axios
-            .get("http://localhost:8000/api/my-booking/owner/booked-room", {
+          await axios
+            .get("http://localhost:8000/api/my-booking/owner/declined-room", {
               headers: { Authorization: `Bearer ${JWT_HEADER}` },
             })
             .then((res) => {
@@ -33,36 +30,6 @@ function BookingApproval() {
         fetchData();
       }, []);
 
-      const _onSubmit = async (status, id) =>{
-        setLoading(true);
-        setStatus(status);
-        setId(id);
-        console.log(id);
-        console.log(status);
-
-        axios
-            .post("http://localhost:8000/api/my-booking/owner/change-status", {
-                booking_id:id,
-                status:status
-            }, {
-                headers: {
-                    
-                    Authorization: `Bearer ${JWT_HEADER}`
-                }
-            })
-            .then((res) => {
-                setLoading(false);
-                console.log(res.data)
-                console.log(status);
-                window.location = "/bookingapprove";
-            })
-            .catch((err) =>{
-                setLoading(false)
-                console.log(err.response.data)
-            
-            })
-        };
-
     return(           
         <div class="fixed-nav sticky-footer" id="page-top">          
             <Navbar />  
@@ -71,10 +38,10 @@ function BookingApproval() {
                     <div class="box_general">
                         <div class="list_general">
                             <ul>
-                                {pending.pending_list.map(item => (
+                                {pending.declined_list.map(item => (
                                     <li>
                                         <figure><img src="assets/img/item_1.jpg" alt=""/></figure>
-                                        <h4>{item.room_name} <i class={item.status}>{item.status}</i></h4>
+                                        <h4>{item.room_name} <i class="cancel">{item.status}</i></h4>
                                         <ul class="booking_list">
                                             <li><strong>Booking Date</strong> {item.booking_date}</li>
                                             <li><strong>Starting Time</strong> {item.starting_time}</li>
@@ -87,26 +54,7 @@ function BookingApproval() {
                                             <li><strong>Phone</strong> {item.phone_customer}</li>
                                         </ul>
                                         <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
-                                        <ul class="buttons">
-                                            <li>
-                                                <button  class="btn_1 gray approve"
-                                                    disabled={loading}
-                                                    block
-                                                    onClick={() => _onSubmit("approved", item.booking_id)}
-                                                >
-                                                    <i class="fa fa-fw fa-check-circle-o"></i> Approve
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button class="btn_1 gray delete"
-                                                    disabled={loading}
-                                                    block
-                                                    onClick={() => _onSubmit("declined", item.booking_id)}
-                                                >
-                                                    <i class="fa fa-fw fa-times-circle-o"></i> Cancel
-                                                </button>
-                                            </li>
-                                        </ul>
+                                       
                                     </li>
 
                                 ))}
@@ -154,4 +102,4 @@ function BookingApproval() {
     );
 }
     
-export default BookingApproval;
+export default DeclinedRoom;

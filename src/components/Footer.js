@@ -7,8 +7,8 @@ function Footer() {
             <div class="container margin_60_35">
                 <div class="row">
                     <div class="col-lg-5 col-md-12 p-r-5">
-                        <p><img src="assets/img/logo.svg" width="150" height="36" alt=""/></p>
-                        <p>Mea nibh meis philosophia eu. Duis legimus efficiantur ea sea. Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu. Nihil facilisi indoctum an vix, ut delectus expetendis vis.</p>
+                        <p><img src="assets/img/otakkananlogo.png" width="160" height="50" alt=""/></p>
+                        <p>PT Otak Kanan (OK) is a creative company based in Surabaya, Indonesia. We create, build and operate companies that challenge the status quo. PT Otak Kanan has prototyped and tested hundreds of ideas, and from those, has served more than 100 companies spanning a wide range of markets.</p>
                         <div class="follow_us">
                             <ul>
                                 <li>Follow us</li>
@@ -26,14 +26,13 @@ function Footer() {
                             <li><Link to="/about">About</Link></li>
                             <li><a href="/login">Login</a></li>
                             <li><a href="/register">Register</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-3 col-md-6">
                         <h5>Contact with Us</h5>
                         <ul class="contacts">
-                            <li><a href="tel://61280932400"><i class="ti-mobile"></i> + 61 23 8093 3400</a></li>
-                            <li><a href="mailto:info@Panagea.com"><i class="ti-email"></i> info@Panagea.com</a></li>
+                            <li><a href="tel://61280932400"><i class="ti-mobile"></i> + 62 85 77 59 36999</a></li>
+                            <li><a href="mailto:info@Panagea.com"><i class="ti-email"></i> info@otakkanan.co.id</a></li>
                         </ul>
                         <div id="newsletter">
                         <h6>Newsletter</h6>
@@ -77,7 +76,7 @@ function Footer() {
                         <ul id="additional_links">
                             <li><a href="#0">Terms and conditions</a></li>
                             <li><a href="#0">Privacy</a></li>
-                            <li><span>© 2019 Panagea</span></li>
+                            <li><span>© 2021 Otak Kanan Office</span></li>
                         </ul>
                     </div>
                 </div>

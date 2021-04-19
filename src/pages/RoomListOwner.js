@@ -1,19 +1,45 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import { Link } from 'react-router-dom';
+import Navbar from '../components/NavbarOwner';
 import FooterOwner from '../components/FooterOwner';
+import axios from 'axios';
+import { GET_OFFICE_ROOMS, STORAGE_URL, JWT_HEADER } from '../constants/urls';
 
 function RoomListOwner() {
+    const [list, setRooms] = React.useState({my_office: []});
+    const [isLoading, setIsLoading] = React.useState(true);
+
+    React.useEffect(() => {
+      const fetchData = async () => {
+        setIsLoading(true);
+        await axios
+          .get(GET_OFFICE_ROOMS(), {
+            headers: {Authorization: `Bearer ${JWT_HEADER}`},
+          })
+          .then((res) => {
+            console.log(res.data);
+            setRooms(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        setIsLoading(false);
+      };
+      fetchData();
+    }, []);
+
     return(
+
     <div>
         <Navbar />
         <div id="page">
         
         <main>
             
-            <section class="hero_in tours">
+            <section class="hero_in hotels">
                 <div class="wrapper">
                     <div class="container">
-                        <h1 class="fadeInUp"><span></span>Your Wishlist</h1>
+                        <h1 class="fadeInUp"><span></span>Your Rooms</h1>
                     </div>
                 </div>
             </section>
@@ -23,125 +49,37 @@ function RoomListOwner() {
                 
             <div class="wrapper-grid">
                 <div class="row">
-                    <div class="col-xl-4 col-lg-6 col-md-6">
+                    {list.my_office.map(item => (
+                        <div class="col-xl-4 col-lg-6 col-md-6">
                         <div class="box_grid">
                             <figure>
                                 <a href="#0" class="wish_bt liked"></a>
-                                <a href="tour-detail.html"><img src="assets/img/tour_1.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Working Space</small>
-                                <div class="read_more"><span>Read more</span></div>
+                                <Link to={{
+                                        pathname: "/roomdetail",
+                                        state: item.id // your data array of objects
+                                    }}><img src={STORAGE_URL + item.filename} class="img-fluid" alt="" width="800" height="533"/></Link>
+                                <small>{item.name}</small>
+                                <div class="read_more"><Link to={{
+                                        pathname: "/roomdetail",
+                                        state: item.id // your data array of objects
+                                    }}><span>Read more</span></Link></div>
                             </figure>
                             <div class="wrapper">
-                                <h3><a href="tour-detail.html">Arc Triomphe</a></h3>
-                                <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">Start from <strong>$54</strong> /per hour</span>
+                                <h3><a href="tour-detail.html">{item.name}</a></h3>
+                                <p>{item.description}</p>
+                                {/* <span class="price">Start from <strong>$54</strong> /per hour</span> */}
                             </div>
                             <ul>
-                                <li>Jakarta</li>
-                                <li><div class="score"><span>Booking<em>Status</em></span><strong>BOOKED</strong></div></li>
+                                <li>{item.address}</li>
+                                <li></li>
+                                {/* <li><div class="score"><span>Booking<em>Status</em></span><strong>BOOKED</strong></div></li> */}
                             </ul>
                         </div>
-                    </div>
+                        </div>
+                    ))}
+                    
                 
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="box_grid">
-                            <figure>
-                                <a href="#0" class="wish_bt liked"></a>
-                                <a href="tour-detail.html"><img src="assets/img/tour_2.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Working Space</small>
-                                <div class="read_more"><span>Read more</span></div>
-                            </figure>
-                            <div class="wrapper">
-                                <h3><a href="tour-detail.html">Notredam</a></h3>
-                                <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">Start from <strong>$124</strong> /per hour</span>
-                            </div>
-                            <ul>
-                                <li>Surabaya</li>
-                                <li><div class="score"><span>Booking<em>Status</em></span><strong>UNRESERVE</strong></div></li>
-                            </ul>
-                        </div>
-                    </div>
                     
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="box_grid">
-                            <figure>
-                                <a href="#0" class="wish_bt liked"></a>
-                                <a href="tour-detail.html"><img src="assets/img/tour_3.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Meeting Room</small>
-                                <div class="read_more"><span>Read more</span></div>
-                            </figure>
-                            <div class="wrapper">
-                                <h3><a href="tour-detail.html">Versailles</a></h3>
-                                <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">Start from <strong>$25</strong> /per hour</span>
-                            </div>
-                            <ul>
-                                <li>Madiun</li>
-                                <li><div class="score"><span>Booking<em>Status</em></span><strong>UNRESERVE</strong></div></li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="box_grid">
-                            <figure>
-                                <a href="#0" class="wish_bt liked"></a>
-                                <a href="tour-detail.html"><img src="assets/img/tour_4.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Office</small>
-                                <div class="read_more"><span>Read more</span></div>
-                            </figure>
-                            <div class="wrapper">
-                                <h3><a href="tour-detail.html">Pompidue Museum</a></h3>
-                                <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">Start from <strong>$45</strong> /per hour</span>
-                            </div>
-                            <ul>
-                                <li>Jakarta</li>
-                                <li><div class="score"><span>Booking<em>Status</em></span><strong>BOOKED</strong></div></li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="box_grid">
-                            <figure>
-                                <a href="#0" class="wish_bt liked"></a>
-                                <a href="tour-detail.html"><img src="assets/img/tour_5.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Working Space</small>
-                                <div class="read_more"><span>Read more</span></div>
-                            </figure>
-                            <div class="wrapper">
-                                <h3><a href="tour-detail.html">Tour Eiffel</a></h3>
-                                <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">Start from <strong>$65</strong> /per hour</span>
-                            </div>
-                            <ul>
-                                <li>Jakarta Selatan</li>
-                                <li><div class="score"><span>Booking<em>Status</em></span><strong>BOOKED</strong></div></li>
-                            </ul>
-                        </div>
-                    </div>
-                
-                    <div class="col-xl-4 col-lg-6 col-md-6">
-                        <div class="box_grid">
-                            <figure>
-                                <a href="#0" class="wish_bt liked"></a>
-                                <a href="tour-detail.html"><img src="assets/img/tour_6.jpg" class="img-fluid" alt="" width="800" height="533"/></a>
-                                <small>Office</small>
-                                <div class="read_more"><span>Read more</span></div>
-                            </figure>
-                            <div class="wrapper">
-                                <h3><a href="tour-detail.html">Louvre Museum</a></h3>
-                                <p>Id placerat tacimates definitionem sea, prima quidam vim no. Duo nobis persecuti cu.</p>
-                                <span class="price">Start from <strong>$95</strong> /per hour</span>
-                            </div>
-                            <ul>
-                                <li>Sidoarjo</li>
-                                <li><div class="score"><span>Booking<em>Status</em></span><strong>UNRESERVE</strong></div></li>
-                            </ul>
-                        </div>
-                    </div>
                 
                 </div>
                 
@@ -190,7 +128,7 @@ function RoomListOwner() {
 
 	
 
-	<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
+	{/* <div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide">
 		<div class="small-dialog-header">
 			<h3>Sign In</h3>
 		</div>
@@ -234,7 +172,7 @@ function RoomListOwner() {
 			</div>
 		</form>
 	
-	</div>
+	</div> */}
 	
 	
 	<div id="toTop"></div>

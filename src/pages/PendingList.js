@@ -1,27 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Navbar from '../components/NavbarOwner';
+import Navbar from '../components/NavbarUser';
 import FooterOwner from '../components/FooterOwner';
 import { JWT_HEADER } from "../constants/urls";
 import axios from "axios";
 
-function BookingApproval() {
+function PendingList() {
 
     const [pending, setPending] = React.useState({pending_list: []});
-    const [loading, setLoading] = React.useState(false);
-    const [status, setStatus] = React.useState("");
-    const [id, setId] = React.useState("");
 
     React.useEffect(() => {
         const fetchData = async () => {
           
-          axios
-            .get("http://localhost:8000/api/my-booking/owner/booked-room", {
+          await axios
+            .get("http://localhost:8000/api/my-booking/user/pending", {
               headers: { Authorization: `Bearer ${JWT_HEADER}` },
             })
             .then((res) => {
               console.log(res.data);
-              console.log(JWT_HEADER);
               setPending(res.data);
             })
             .catch((err) => {
@@ -32,36 +28,8 @@ function BookingApproval() {
         };
         fetchData();
       }, []);
-
-      const _onSubmit = async (status, id) =>{
-        setLoading(true);
-        setStatus(status);
-        setId(id);
-        console.log(id);
-        console.log(status);
-
-        axios
-            .post("http://localhost:8000/api/my-booking/owner/change-status", {
-                booking_id:id,
-                status:status
-            }, {
-                headers: {
-                    
-                    Authorization: `Bearer ${JWT_HEADER}`
-                }
-            })
-            .then((res) => {
-                setLoading(false);
-                console.log(res.data)
-                console.log(status);
-                window.location = "/bookingapprove";
-            })
-            .catch((err) =>{
-                setLoading(false)
-                console.log(err.response.data)
-            
-            })
-        };
+    
+      
 
     return(           
         <div class="fixed-nav sticky-footer" id="page-top">          
@@ -69,6 +37,10 @@ function BookingApproval() {
                 <div class="content-wrapper" style={{backgroundColor: '#707070'}}>
                     <div class="container-fluid">             
                     <div class="box_general">
+                        <div class="header_box">
+                            <h2 class="d-inline-block">Bookings list</h2>
+                            
+                        </div>
                         <div class="list_general">
                             <ul>
                                 {pending.pending_list.map(item => (
@@ -83,30 +55,11 @@ function BookingApproval() {
                                             <li><strong>Quantity</strong> {item.quantity}</li>
                                             <li><strong>Total Price</strong> {item.total_price}</li>
                                             <li><strong>Address</strong> {item.address} </li>
-                                            <li><strong>Customer</strong> {item.customer}</li>
-                                            <li><strong>Phone</strong> {item.phone_customer}</li>
+                                            <li><strong>Owner</strong> {item.owner}</li>
+                                            <li><strong>Phone</strong> {item.phone_owner}</li>
                                         </ul>
                                         <p><a href="#0" class="btn_1 gray"><i class="fa fa-fw fa-envelope"></i> Send Message</a></p>
-                                        <ul class="buttons">
-                                            <li>
-                                                <button  class="btn_1 gray approve"
-                                                    disabled={loading}
-                                                    block
-                                                    onClick={() => _onSubmit("approved", item.booking_id)}
-                                                >
-                                                    <i class="fa fa-fw fa-check-circle-o"></i> Approve
-                                                </button>
-                                            </li>
-                                            <li>
-                                                <button class="btn_1 gray delete"
-                                                    disabled={loading}
-                                                    block
-                                                    onClick={() => _onSubmit("declined", item.booking_id)}
-                                                >
-                                                    <i class="fa fa-fw fa-times-circle-o"></i> Cancel
-                                                </button>
-                                            </li>
-                                        </ul>
+                                        
                                     </li>
 
                                 ))}
@@ -115,11 +68,7 @@ function BookingApproval() {
                             </ul>
                         </div>
                         
-                        
-
                     </div>
-            
-                    
                 
                 </div>
             
@@ -154,4 +103,4 @@ function BookingApproval() {
     );
 }
     
-export default BookingApproval;
+export default PendingList;
